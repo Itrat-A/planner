@@ -1,6 +1,6 @@
 // Offline support: keeps the planner and the Quran text available without internet.
-const CACHE = "planner-v5";
-const FILES = ["./", "index.html", "quran.json", "manifest.webmanifest", "icon-192.png", "icon-512.png", "img/morning.webp", "img/day.webp", "img/evening.webp", "img/night.webp", "img/quran.webp"];
+const CACHE = "planner-v9";
+const FILES = ["./", "index.html", "quran.json", "en-clear.json", "en-saheeh.json", "manifest.webmanifest", "icon-192.png", "icon-512.png", "img/morning.webp", "img/day.webp", "img/evening.webp", "img/night.webp", "img/quran.webp"];
 self.addEventListener("install", e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES))); self.skipWaiting(); });
 self.addEventListener("activate", e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k))))); self.clients.claim(); });
 self.addEventListener("fetch", e => {

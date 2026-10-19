@@ -5,7 +5,7 @@ Your own copy of the planner. It works without Claude, saves on your device, and
 ## Put it online with GitHub Pages (about 5 minutes)
 
 1. Create a new **public** repository on GitHub, for example `planner`.
-2. Upload everything in this folder, including the **img** folder (index.html, quran.json, sw.js, manifest.webmanifest, the two icons, and img/).
+2. Upload everything in this folder, including the **img** folder (index.html, quran.json, en-clear.json, en-saheeh.json, sw.js, manifest.webmanifest, the two icons, and img/).
 3. In the repo go to **Settings → Pages**. Under "Build and deployment", choose **Deploy from a branch**, branch **main**, folder **/ (root)**, then **Save**.
 4. Wait a minute. Your planner is live at `https://<your-username>.github.io/planner/`.
 
@@ -26,4 +26,4 @@ Your own copy of the planner. It works without Claude, saves on your device, and
 Replace `index.html` in the repo with a newer version. The app picks it up next time you open it online.
 If you ever change other files, also bump `CACHE` in `sw.js` (for example `planner-v3`).
 
-Quran text: Arabic from Tanzil (Quran Simple), English translation by Marmaduke Pickthall (1930, public domain).
+Quran text: Arabic from Tanzil (Quran Simple). English: The Clear Quran by Dr. Mustafa Khattab, and Saheeh International.

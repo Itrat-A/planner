@@ -89,13 +89,13 @@ body[data-phase="night"] .spark,body[data-phase="dusk"] .spark,body[data-phase="
 .arc{width:100%;height:auto;display:block;overflow:visible;margin-top:auto;padding-top:10px}
 
 /* bottom nav */
-.nav{position:fixed;left:0;right:0;bottom:0;z-index:20;display:grid;grid-template-columns:repeat(6,1fr);gap:2px;
+.nav{position:fixed;left:0;right:0;bottom:0;z-index:20;display:grid;grid-template-columns:repeat(7,1fr);gap:1px;
   padding:6px max(10px,env(safe-area-inset-right,0px)) calc(6px + env(safe-area-inset-bottom,0px)) max(10px,env(safe-area-inset-left,0px));
   background:rgba(255,253,246,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line);box-shadow:0 -8px 24px -18px rgba(50,70,40,.6)}
-.nav button{background:none;border:0;border-radius:16px;padding:6px 0 5px;display:flex;flex-direction:column;align-items:center;gap:2px;color:var(--dim);font-size:10.5px;font-weight:800;min-height:52px}
+.nav button{background:none;border:0;border-radius:14px;padding:6px 0 5px;display:flex;flex-direction:column;align-items:center;gap:2px;color:var(--dim);font-size:10px;font-weight:800;min-height:52px;min-width:0}
 .nav svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
 .nav button[aria-selected="true"]{color:var(--accent);background:var(--accent-soft)}
-@media (min-width:700px){.nav{left:50%;right:auto;width:600px;transform:translateX(-50%);bottom:12px;border-radius:24px;border:1px solid var(--line);padding:6px 10px}}
+@media (min-width:700px){.nav{left:50%;right:auto;width:640px;transform:translateX(-50%);bottom:12px;border-radius:24px;border:1px solid var(--line);padding:6px 10px}}
 
 /* sections */
 .panel{display:flex;flex-direction:column;gap:14px;animation:rise .35s ease both}
@@ -131,6 +131,56 @@ textarea{min-height:96px;resize:vertical}
 .check[aria-pressed="true"] .t b{color:#3D7A31}
 .check.star{border-color:#F3D27A;background:#FFF8E1}
 .tag{font-size:10.5px;font-weight:800;padding:2px 8px;border-radius:999px;background:#EAF2FB;color:#3B76A6;white-space:nowrap}
+.todo{display:flex;align-items:center;gap:8px;padding:6px 6px 6px 12px;border:1.5px solid var(--line);border-radius:16px;background:#FFFEFA;min-height:56px}
+.todo.done{background:#EEF8E6;border-color:#BFE0AE}
+.todo .tk{display:flex;align-items:center;gap:12px;flex:1;min-width:0;background:none;border:0;padding:6px 0;text-align:left}
+.todo .tk b{display:block;font-weight:800;overflow-wrap:anywhere}
+.todo.done .tk b{color:#3D7A31;text-decoration:line-through;text-decoration-color:rgba(61,122,49,.5)}
+.todo.done .box{background:linear-gradient(135deg,#8BCB6F,var(--grass));border-color:var(--grass)}
+.todo.done .box::after{content:"";width:7px;height:12px;border:solid #fff;border-width:0 3px 3px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.todo .mv{flex:none;border:1.5px solid var(--line);background:#fff;border-radius:10px;font-size:12px;font-weight:800;padding:6px 9px;color:var(--muted);min-height:36px}
+.addrow{display:grid;grid-template-columns:1fr auto;gap:8px}
+.addrow .btn{padding:10px 16px}
+.slotgrp{display:flex;flex-direction:column;gap:8px}
+.slotlbl{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--dim);margin-top:2px}
+.carry{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:12px 14px;border-radius:16px;background:#FFF4EA;border:1.5px solid #F7D8BF}
+.hi{background:linear-gradient(165deg,#FFFDF8 0%,#FFF1E4 100%);border:1px solid #F5DCC6}
+.chat{display:flex;flex-direction:column;gap:8px}
+.msg{max-width:88%;padding:10px 13px;border-radius:18px;font-size:15px;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere}
+.msg.me{align-self:flex-end;background:var(--accent);color:#fff;border-bottom-right-radius:6px}
+.msg.cl{align-self:flex-start;background:#fff;border:1px solid var(--line);border-bottom-left-radius:6px}
+.msg.cl.thinking{color:var(--muted);font-style:italic}
+.quick{display:flex;gap:6px;flex-wrap:wrap}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;border-radius:999px;background:#fff;border:1.5px solid var(--line)}
+.seg button{border:0;background:none;border-radius:999px;padding:9px;font-weight:800;color:var(--muted);min-height:42px}
+.seg button[aria-pressed="true"]{background:var(--accent);color:#fff}
+.navrow{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.navrow b{font-family:var(--display);font-weight:600;font-size:17px;text-align:center}
+.navrow button{border:1.5px solid var(--line);background:#fff;border-radius:999px;width:40px;height:40px;font-size:18px;font-weight:800}
+.mchart{display:grid;gap:2px;align-items:end;height:120px}
+.mchart i{display:block;border-radius:4px 4px 2px 2px;background:linear-gradient(180deg,#B9CFEE,#7FA6DA);min-height:2px}
+.mchart i.today{background:linear-gradient(180deg,var(--sun2),var(--sun))}
+.mchart i.fut{background:var(--soft)}
+.axis{display:flex;justify-content:space-between;font-size:10.5px;color:var(--dim);font-weight:800}
+.kv{display:flex;justify-content:space-between;gap:10px;font-size:14px;padding:8px 0;border-bottom:1px solid #EFE9D7}
+.kv:last-child{border-bottom:0}
+.kv b{font-family:var(--mono);font-weight:500;font-variant-numeric:tabular-nums}
+.delta{font-size:11.5px;font-weight:800;padding:1px 7px;border-radius:999px;margin-left:6px;white-space:nowrap}
+.delta.up{background:#E7F4DF;color:#3D7A31} .delta.down{background:#FDE8EE;color:#C2456A} .delta.same{background:var(--soft);color:var(--muted)}
+.wgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;text-align:center}
+.wgrid .dn{font-size:11px;font-weight:800;color:var(--muted)}
+.wgrid .sc{font-family:var(--display);font-weight:600;font-size:17px;border-radius:12px;padding:8px 0;background:var(--soft)}
+.wgrid .sc.l1{background:#E6EEF9} .wgrid .sc.l2{background:#C9DBF3} .wgrid .sc.l3{background:#7FA6DA;color:#fff}
+.pd{display:flex;justify-content:center;gap:2px} .pd i{width:6px;height:6px;border-radius:50%;background:var(--line2)} .pd i.on{background:var(--sun)} .pd i.late{background:#F2C089}
+.goalbig{display:flex;align-items:baseline;gap:8px} .goalbig b{font-family:var(--display);font-weight:600;font-size:56px;line-height:1;color:var(--accent)} .goalbig span{font-weight:800;color:var(--muted)}
+.person{display:flex;flex-direction:column;gap:8px;padding:12px;border:1.5px solid var(--line);border-radius:16px;background:#FFFEFA}
+.person .top{display:flex;gap:10px;align-items:center}
+.person .who{flex:1;min-width:0} .person .who b{display:block;overflow-wrap:anywhere}
+.person .ctrl{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.st{font-size:11px;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.st-Reached{background:#E6EEF9;color:#3F6FB0} .st-Replied{background:#E7F4DF;color:#3D7A31} .st-Interview{background:#FFF3D1;color:#A8730C} .st-Offer{background:#E2F4F2;color:#23807A} .st-No.reply,.st-Noreply{background:var(--soft);color:var(--muted)} .st-Notafit{background:#FDE8EE;color:#C2456A}
+.fu{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:10px 12px;border-radius:14px;background:#FFF4EA;border:1.5px solid #F7D8BF}
+.fu .who{flex:1;min-width:140px}
 .later{font-size:13px;color:var(--muted);padding:10px 12px;border-radius:14px;background:var(--soft);border:1px dashed var(--line2)}
 
 /* ayah */
@@ -313,6 +363,7 @@ h2.ht{display:flex;align-items:center;gap:10px}
   <button role="tab" data-tab="night"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>Night</button>
   <button role="tab" data-tab="quran"><svg viewBox="0 0 24 24"><path d="M12 6.5C10 5 7 4.5 3.5 5v13c3.5-.5 6.5 0 8.5 1.5 2-1.5 5-2 8.5-1.5V5C17 4.5 14 5 12 6.5zM12 6.5v13"/></svg>Quran</button>
   <button role="tab" data-tab="money"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="3"/><path d="M3 10h18M16 15h2"/></svg>Money</button>
+  <button role="tab" data-tab="jobs"><svg viewBox="0 0 24 24"><path d="M3 8h18v12H3zM9 8V5h6v3M3 13h18"/></svg>Jobs</button>
   <button role="tab" data-tab="stats"><svg viewBox="0 0 24 24"><path d="M5 20V11M12 20V5M19 20v-6"/></svg>Growth</button>
 </nav>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -321,7 +372,7 @@ h2.ht{display:flex;align-items:center;gap:10px}
 (function(){
 "use strict";
 const STANDALONE=true;
-const DAILY=[{"ref": "94:5-6", "s": "Ash-Sharh", "se": "The Consolation", "ar": ["فَإِنَّ مَعَ الْعُسْرِ يُسْرًا", "إِنَّ مَعَ الْعُسْرِ يُسْرًا"], "en": ["But lo! with hardship goeth ease", "Lo! with hardship goeth ease"]}, {"ref": "13:28", "s": "Ar-Ra'd", "se": "The Thunder", "ar": ["الَّذِينَ آمَنُوا وَتَطْمَئِنُّ قُلُوبُهُمْ بِذِكْرِ اللَّهِ ۗ أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ"], "en": ["Who have believed and whose hearts have rest in the remembrance of Allah. Verily in the remembrance of Allah do hearts find rest"]}, {"ref": "2:153", "s": "Al-Baqara", "se": "The Cow", "ar": ["يَا أَيُّهَا الَّذِينَ آمَنُوا اسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ ۚ إِنَّ اللَّهَ مَعَ الصَّابِرِينَ"], "en": ["O ye who believe! Seek help in steadfastness and prayer. Lo! Allah is with the steadfast"]}, {"ref": "39:53", "s": "Az-Zumar", "se": "The Groups", "ar": ["۞ قُلْ يَا عِبَادِيَ الَّذِينَ أَسْرَفُوا عَلَىٰ أَنْفُسِهِمْ لَا تَقْنَطُوا مِنْ رَحْمَةِ اللَّهِ ۚ إِنَّ اللَّهَ يَغْفِرُ الذُّنُوبَ جَمِيعًا ۚ إِنَّهُ هُوَ الْغَفُورُ الرَّحِيمُ"], "en": ["Say: O My slaves who have been prodigal to their own hurt! Despair not of the mercy of Allah, Who forgiveth all sins. Lo! He is the Forgiving, the Merciful"]}, {"ref": "65:3", "s": "At-Talaaq", "se": "Divorce", "ar": ["وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ ۚ وَمَنْ يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ ۚ إِنَّ اللَّهَ بَالِغُ أَمْرِهِ ۚ قَدْ جَعَلَ اللَّهُ لِكُلِّ شَيْءٍ قَدْرًا"], "en": ["And will provide for him from (a quarter) whence he hath no expectation. And whosoever putteth his trust in Allah, He will suffice him. Lo! Allah bringeth His command to pass. Allah hath set a measure for all things"]}, {"ref": "3:139", "s": "Aal-i-Imraan", "se": "The Family of Imraan", "ar": ["وَلَا تَهِنُوا وَلَا تَحْزَنُوا وَأَنْتُمُ الْأَعْلَوْنَ إِنْ كُنْتُمْ مُؤْمِنِينَ"], "en": ["Faint not nor grieve, for ye will overcome them if ye are (indeed) believers"]}, {"ref": "2:152", "s": "Al-Baqara", "se": "The Cow", "ar": ["فَاذْكُرُونِي أَذْكُرْكُمْ وَاشْكُرُوا لِي وَلَا تَكْفُرُونِ"], "en": ["Therefore remember Me, I will remember you. Give thanks to Me, and reject not Me"]}, {"ref": "29:69", "s": "Al-Ankaboot", "se": "The Spider", "ar": ["وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا ۚ وَإِنَّ اللَّهَ لَمَعَ الْمُحْسِنِينَ"], "en": ["As for those who strive in Us, We surely guide them to Our paths, and lo! Allah is with the good"]}, {"ref": "53:39", "s": "An-Najm", "se": "The Star", "ar": ["وَأَنْ لَيْسَ لِلْإِنْسَانِ إِلَّا مَا سَعَىٰ"], "en": ["And that man hath only that for which he maketh effort"]}, {"ref": "13:11", "s": "Ar-Ra'd", "se": "The Thunder", "ar": ["لَهُ مُعَقِّبَاتٌ مِنْ بَيْنِ يَدَيْهِ وَمِنْ خَلْفِهِ يَحْفَظُونَهُ مِنْ أَمْرِ اللَّهِ ۗ إِنَّ اللَّهَ لَا يُغَيِّرُ مَا بِقَوْمٍ حَتَّىٰ يُغَيِّرُوا مَا بِأَنْفُسِهِمْ ۗ وَإِذَا أَرَادَ اللَّهُ بِقَوْمٍ سُوءًا فَلَا مَرَدَّ لَهُ ۚ وَمَا لَهُمْ مِنْ دُونِهِ مِنْ وَالٍ"], "en": ["For him are angels ranged before him and behind him, who guard him by Allah's command. Lo! Allah changeth not the condition of a folk until they (first) change that which is in their hearts; and if Allah willeth misfortune for a folk there is none that can repel it, nor have they a defender beside Him"]}, {"ref": "40:60", "s": "Ghafir", "se": "The Forgiver", "ar": ["وَقَالَ رَبُّكُمُ ادْعُونِي أَسْتَجِبْ لَكُمْ ۚ إِنَّ الَّذِينَ يَسْتَكْبِرُونَ عَنْ عِبَادَتِي سَيَدْخُلُونَ جَهَنَّمَ دَاخِرِينَ"], "en": ["And your Lord hath said: Pray unto Me and I will hear your prayer. Lo! those who scorn My service, they will enter hell, disgraced"]}, {"ref": "2:186", "s": "Al-Baqara", "se": "The Cow", "ar": ["وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ ۖ أُجِيبُ دَعْوَةَ الدَّاعِ إِذَا دَعَانِ ۖ فَلْيَسْتَجِيبُوا لِي وَلْيُؤْمِنُوا بِي لَعَلَّهُمْ يَرْشُدُونَ"], "en": ["And when My servants question thee concerning Me, then surely I am nigh. I answer the prayer of the suppliant when he crieth unto Me. So let them hear My call and let them trust in Me, in order that they may be led aright"]}, {"ref": "20:25-28", "s": "Taa-Haa", "se": "Taa-Haa", "ar": ["قَالَ رَبِّ اشْرَحْ لِي صَدْرِي", "وَيَسِّرْ لِي أَمْرِي", "وَاحْلُلْ عُقْدَةً مِنْ لِسَانِي", "يَفْقَهُوا قَوْلِي"], "en": ["(Moses) said: My Lord! relieve my mind", "And ease my task for me", "And loose a knot from my tongue", "That they may understand my saying"]}, {"ref": "71:10", "s": "Nooh", "se": "Noah", "ar": ["فَقُلْتُ اسْتَغْفِرُوا رَبَّكُمْ إِنَّهُ كَانَ غَفَّارًا"], "en": ["And I have said: Seek pardon of your Lord. Lo! He was ever Forgiving"]}, {"ref": "3:159", "s": "Aal-i-Imraan", "se": "The Family of Imraan", "ar": ["فَبِمَا رَحْمَةٍ مِنَ اللَّهِ لِنْتَ لَهُمْ ۖ وَلَوْ كُنْتَ فَظًّا غَلِيظَ الْقَلْبِ لَانْفَضُّوا مِنْ حَوْلِكَ ۖ فَاعْفُ عَنْهُمْ وَاسْتَغْفِرْ لَهُمْ وَشَاوِرْهُمْ فِي الْأَمْرِ ۖ فَإِذَا عَزَمْتَ فَتَوَكَّلْ عَلَى اللَّهِ ۚ إِنَّ اللَّهَ يُحِبُّ الْمُتَوَكِّلِينَ"], "en": ["It was by the mercy of Allah that thou wast lenient with them (O Muhammad), for if thou hadst been stern and fierce of heart they would have dispersed from round about thee. So pardon them and ask forgiveness for them and consult with them upon the conduct of affairs. And when thou art resolved, then put thy trust in Allah. Lo! Allah loveth those who put their trust (in Him)"]}, {"ref": "94:7-8", "s": "Ash-Sharh", "se": "The Consolation", "ar": ["فَإِذَا فَرَغْتَ فَانْصَبْ", "وَإِلَىٰ رَبِّكَ فَارْغَبْ"], "en": ["So when thou art relieved, still toil", "And strive to please thy Lord"]}, {"ref": "17:78", "s": "Al-Israa", "se": "The Night Journey", "ar": ["أَقِمِ الصَّلَاةَ لِدُلُوكِ الشَّمْسِ إِلَىٰ غَسَقِ اللَّيْلِ وَقُرْآنَ الْفَجْرِ ۖ إِنَّ قُرْآنَ الْفَجْرِ كَانَ مَشْهُودًا"], "en": ["Establish worship at the going down of the sun until the dark of night, and (the recital of) the Qur'an at dawn. Lo! (the recital of) the Qur'an at dawn is ever witnessed"]}, {"ref": "39:10", "s": "Az-Zumar", "se": "The Groups", "ar": ["قُلْ يَا عِبَادِ الَّذِينَ آمَنُوا اتَّقُوا رَبَّكُمْ ۚ لِلَّذِينَ أَحْسَنُوا فِي هَٰذِهِ الدُّنْيَا حَسَنَةٌ ۗ وَأَرْضُ اللَّهِ وَاسِعَةٌ ۗ إِنَّمَا يُوَفَّى الصَّابِرُونَ أَجْرَهُمْ بِغَيْرِ حِسَابٍ"], "en": ["Say: O My bondmen who believe! Observe your duty to your Lord. For those who do good in this world there is good, and Allah's earth is spacious. Verily the steadfast will be paid their wages without stint"]}, {"ref": "12:87", "s": "Yusuf", "se": "Joseph", "ar": ["يَا بَنِيَّ اذْهَبُوا فَتَحَسَّسُوا مِنْ يُوسُفَ وَأَخِيهِ وَلَا تَيْأَسُوا مِنْ رَوْحِ اللَّهِ ۖ إِنَّهُ لَا يَيْأَسُ مِنْ رَوْحِ اللَّهِ إِلَّا الْقَوْمُ الْكَافِرُونَ"], "en": ["Go, O my sons, and ascertain concerning Joseph and his brother, and despair not of the Spirit of Allah. Lo! none despaireth of the Spirit of Allah save disbelieving folk"]}, {"ref": "3:200", "s": "Aal-i-Imraan", "se": "The Family of Imraan", "ar": ["يَا أَيُّهَا الَّذِينَ آمَنُوا اصْبِرُوا وَصَابِرُوا وَرَابِطُوا وَاتَّقُوا اللَّهَ لَعَلَّكُمْ تُفْلِحُونَ"], "en": ["O ye who believe! Endure, outdo all others in endurance, be ready, and observe your duty to Allah, in order that ye may succeed"]}, {"ref": "14:7", "s": "Ibrahim", "se": "Abraham", "ar": ["وَإِذْ تَأَذَّنَ رَبُّكُمْ لَئِنْ شَكَرْتُمْ لَأَزِيدَنَّكُمْ ۖ وَلَئِنْ كَفَرْتُمْ إِنَّ عَذَابِي لَشَدِيدٌ"], "en": ["And when your Lord proclaimed: If ye give thanks, I will give you more; but if ye are thankless, lo! My punishment is dire"]}, {"ref": "99:7-8", "s": "Az-Zalzala", "se": "The Earthquake", "ar": ["فَمَنْ يَعْمَلْ مِثْقَالَ ذَرَّةٍ خَيْرًا يَرَهُ", "وَمَنْ يَعْمَلْ مِثْقَالَ ذَرَّةٍ شَرًّا يَرَهُ"], "en": ["And whoso doeth good an atom's weight will see it then", "And whoso doeth ill an atom's weight will see it then"]}, {"ref": "33:41-42", "s": "Al-Ahzaab", "se": "The Clans", "ar": ["يَا أَيُّهَا الَّذِينَ آمَنُوا اذْكُرُوا اللَّهَ ذِكْرًا كَثِيرًا", "وَسَبِّحُوهُ بُكْرَةً وَأَصِيلًا"], "en": ["O ye who believe! Remember Allah with much remembrance", "And glorify Him early and late"]}, {"ref": "16:97", "s": "An-Nahl", "se": "The Bee", "ar": ["مَنْ عَمِلَ صَالِحًا مِنْ ذَكَرٍ أَوْ أُنْثَىٰ وَهُوَ مُؤْمِنٌ فَلَنُحْيِيَنَّهُ حَيَاةً طَيِّبَةً ۖ وَلَنَجْزِيَنَّهُمْ أَجْرَهُمْ بِأَحْسَنِ مَا كَانُوا يَعْمَلُونَ"], "en": ["Whosoever doeth right, whether male or female, and is a believer, him verily we shall quicken with good life, and We shall pay them a recompense in proportion to the best of what they used to do"]}, {"ref": "103:1-3", "s": "Al-Asr", "se": "The Declining Day, Epoch", "ar": ["بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ وَالْعَصْرِ", "إِنَّ الْإِنْسَانَ لَفِي خُسْرٍ", "إِلَّا الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَتَوَاصَوْا بِالْحَقِّ وَتَوَاصَوْا بِالصَّبْرِ"], "en": ["By the declining day", "Lo! man is a state of loss", "Save those who believe and do good works, and exhort one another to truth and exhort one another to endurance"]}, {"ref": "23:1-2", "s": "Al-Muminoon", "se": "The Believers", "ar": ["بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ قَدْ أَفْلَحَ الْمُؤْمِنُونَ", "الَّذِينَ هُمْ فِي صَلَاتِهِمْ خَاشِعُونَ"], "en": ["Successful indeed are the believers", "Who are humble in their prayers"]}, {"ref": "29:45", "s": "Al-Ankaboot", "se": "The Spider", "ar": ["اتْلُ مَا أُوحِيَ إِلَيْكَ مِنَ الْكِتَابِ وَأَقِمِ الصَّلَاةَ ۖ إِنَّ الصَّلَاةَ تَنْهَىٰ عَنِ الْفَحْشَاءِ وَالْمُنْكَرِ ۗ وَلَذِكْرُ اللَّهِ أَكْبَرُ ۗ وَاللَّهُ يَعْلَمُ مَا تَصْنَعُونَ"], "en": ["Recite that which hath been inspired in thee of the Scripture, and establish worship. Lo! worship preserveth from lewdness and iniquity, but verily remembrance of Allah is more important. And Allah knoweth what ye do"]}, {"ref": "2:201", "s": "Al-Baqara", "se": "The Cow", "ar": ["وَمِنْهُمْ مَنْ يَقُولُ رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ"], "en": ["And of them (also) is he who saith: \"Our Lord! Give unto us in the world that which is good and in the Hereafter that which is good, and guard us from the doom of Fire"]}, {"ref": "2:286", "s": "Al-Baqara", "se": "The Cow", "ar": ["لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا ۚ لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا اكْتَسَبَتْ ۗ رَبَّنَا لَا تُؤَاخِذْنَا إِنْ نَسِينَا أَوْ أَخْطَأْنَا ۚ رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَا إِصْرًا كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِنْ قَبْلِنَا ۚ رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِ ۖ وَاعْفُ عَنَّا وَاغْفِرْ لَنَا وَارْحَمْنَا ۚ أَنْتَ مَوْلَانَا فَانْصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ"], "en": ["Allah tasketh not a soul beyond its scope. For it (is only) that which it hath earned, and against it (only) that which it hath deserved. Our Lord! Condemn us not if we forget, or miss the mark! Our Lord! Lay not on us such a burden as thou didst lay on those before us! Our Lord! Impose not on us that which we have not the strength to bear! Pardon us, absolve us and have mercy on us, Thou, our Protector, and give us victory over the disbelieving folk"]}, {"ref": "18:10", "s": "Al-Kahf", "se": "The Cave", "ar": ["إِذْ أَوَى الْفِتْيَةُ إِلَى الْكَهْفِ فَقَالُوا رَبَّنَا آتِنَا مِنْ لَدُنْكَ رَحْمَةً وَهَيِّئْ لَنَا مِنْ أَمْرِنَا رَشَدًا"], "en": ["When the young men fled for refuge to the Cave and said: Our Lord! Give us mercy from Thy presence, and shape for us right conduct in our plight"]}, {"ref": "28:24", "s": "Al-Qasas", "se": "The Stories", "ar": ["فَسَقَىٰ لَهُمَا ثُمَّ تَوَلَّىٰ إِلَى الظِّلِّ فَقَالَ رَبِّ إِنِّي لِمَا أَنْزَلْتَ إِلَيَّ مِنْ خَيْرٍ فَقِيرٌ"], "en": ["So he watered (their flock) for them. Then he turned aside into the shade, and said: My Lord! I am needy of whatever good Thou sendest down for me"]}];
+const DAILY=[{"ref": "94:5-6", "s": "Ash-Sharh", "se": "The Consolation", "ar": ["فَإِنَّ مَعَ الْعُسْرِ يُسْرًا", "إِنَّ مَعَ الْعُسْرِ يُسْرًا"], "en": ["So, surely with hardship comes ease", "Surely with ˹that˺ hardship comes ˹more˺ ease"], "en2": ["For indeed, with hardship [will be] ease", "Indeed, with hardship [will be] ease"]}, {"ref": "13:28", "s": "Ar-Ra'd", "se": "The Thunder", "ar": ["الَّذِينَ آمَنُوا وَتَطْمَئِنُّ قُلُوبُهُمْ بِذِكْرِ اللَّهِ ۗ أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ"], "en": ["those who believe and whose hearts find comfort in the remembrance of Allah. Surely in the remembrance of Allah do hearts find comfort"], "en2": ["Those who have believed and whose hearts are assured by the remembrance of Allah. Unquestionably, by the remembrance of Allah hearts are assured"]}, {"ref": "2:153", "s": "Al-Baqara", "se": "The Cow", "ar": ["يَا أَيُّهَا الَّذِينَ آمَنُوا اسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ ۚ إِنَّ اللَّهَ مَعَ الصَّابِرِينَ"], "en": ["O believers! Seek comfort in patience and prayer. Allah is truly with those who are patient"], "en2": ["O you who have believed, seek help through patience and prayer. Indeed, Allah is with the patient"]}, {"ref": "39:53", "s": "Az-Zumar", "se": "The Groups", "ar": ["۞ قُلْ يَا عِبَادِيَ الَّذِينَ أَسْرَفُوا عَلَىٰ أَنْفُسِهِمْ لَا تَقْنَطُوا مِنْ رَحْمَةِ اللَّهِ ۚ إِنَّ اللَّهَ يَغْفِرُ الذُّنُوبَ جَمِيعًا ۚ إِنَّهُ هُوَ الْغَفُورُ الرَّحِيمُ"], "en": ["Say, ˹O Prophet, that Allah says,˺ “O My servants who have exceeded the limits against their souls! Do not lose hope in Allah’s mercy, for Allah certainly forgives all sins. He is indeed the All-Forgiving, Most Merciful"], "en2": ["Say, \"O My servants who have transgressed against themselves [by sinning], do not despair of the mercy of Allah. Indeed, Allah forgives all sins. Indeed, it is He who is the Forgiving, the Merciful"]}, {"ref": "65:3", "s": "At-Talaaq", "se": "Divorce", "ar": ["وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ ۚ وَمَنْ يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ ۚ إِنَّ اللَّهَ بَالِغُ أَمْرِهِ ۚ قَدْ جَعَلَ اللَّهُ لِكُلِّ شَيْءٍ قَدْرًا"], "en": ["and provide for them from sources they could never imagine. And whoever puts their trust in Allah, then He ˹alone˺ is sufficient for them. Certainly Allah achieves His Will. Allah has already set a destiny for everything"], "en2": ["And will provide for him from where he does not expect. And whoever relies upon Allah - then He is sufficient for him. Indeed, Allah will accomplish His purpose. Allah has already set for everything a [decreed] extent"]}, {"ref": "3:139", "s": "Aal-i-Imraan", "se": "The Family of Imraan", "ar": ["وَلَا تَهِنُوا وَلَا تَحْزَنُوا وَأَنْتُمُ الْأَعْلَوْنَ إِنْ كُنْتُمْ مُؤْمِنِينَ"], "en": ["Do not falter or grieve, for you will have the upper hand, if you are ˹true˺ believers"], "en2": ["So do not weaken and do not grieve, and you will be superior if you are [true] believers"]}, {"ref": "2:152", "s": "Al-Baqara", "se": "The Cow", "ar": ["فَاذْكُرُونِي أَذْكُرْكُمْ وَاشْكُرُوا لِي وَلَا تَكْفُرُونِ"], "en": ["remember Me; I will remember you. And thank Me, and never be ungrateful"], "en2": ["So remember Me; I will remember you. And be grateful to Me and do not deny Me"]}, {"ref": "29:69", "s": "Al-Ankaboot", "se": "The Spider", "ar": ["وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا ۚ وَإِنَّ اللَّهَ لَمَعَ الْمُحْسِنِينَ"], "en": ["As for those who struggle in Our cause, We will surely guide them along Our Way. And Allah is certainly with the good-doers"], "en2": ["And those who strive for Us - We will surely guide them to Our ways. And indeed, Allah is with the doers of good"]}, {"ref": "53:39", "s": "An-Najm", "se": "The Star", "ar": ["وَأَنْ لَيْسَ لِلْإِنْسَانِ إِلَّا مَا سَعَىٰ"], "en": ["and that each person will only have what they endeavoured towards"], "en2": ["And that there is not for man except that [good] for which he strives"]}, {"ref": "13:11", "s": "Ar-Ra'd", "se": "The Thunder", "ar": ["لَهُ مُعَقِّبَاتٌ مِنْ بَيْنِ يَدَيْهِ وَمِنْ خَلْفِهِ يَحْفَظُونَهُ مِنْ أَمْرِ اللَّهِ ۗ إِنَّ اللَّهَ لَا يُغَيِّرُ مَا بِقَوْمٍ حَتَّىٰ يُغَيِّرُوا مَا بِأَنْفُسِهِمْ ۗ وَإِذَا أَرَادَ اللَّهُ بِقَوْمٍ سُوءًا فَلَا مَرَدَّ لَهُ ۚ وَمَا لَهُمْ مِنْ دُونِهِ مِنْ وَالٍ"], "en": ["For each one there are successive angels before and behind, protecting them by Allah’s command. Indeed, Allah would never change a people’s state ˹of favour˺ until they change their own state ˹of faith˺. And if it is Allah’s Will to torment a people, it can never be averted, nor can they find a protector other than Him"], "en2": ["For each one are successive [angels] before and behind him who protect him by the decree of Allah. Indeed, Allah will not change the condition of a people until they change what is in themselves. And when Allah intends for a people ill, there is no repelling it. And there is not for them besides Him any patron"]}, {"ref": "40:60", "s": "Ghafir", "se": "The Forgiver", "ar": ["وَقَالَ رَبُّكُمُ ادْعُونِي أَسْتَجِبْ لَكُمْ ۚ إِنَّ الَّذِينَ يَسْتَكْبِرُونَ عَنْ عِبَادَتِي سَيَدْخُلُونَ جَهَنَّمَ دَاخِرِينَ"], "en": ["Your Lord has proclaimed, “Call upon Me, I will respond to you. Surely those who are too proud to worship Me will enter Hell, fully humbled.”"], "en2": ["And your Lord says, \"Call upon Me; I will respond to you.\" Indeed, those who disdain My worship will enter Hell [rendered] contemptible"]}, {"ref": "2:186", "s": "Al-Baqara", "se": "The Cow", "ar": ["وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ ۖ أُجِيبُ دَعْوَةَ الدَّاعِ إِذَا دَعَانِ ۖ فَلْيَسْتَجِيبُوا لِي وَلْيُؤْمِنُوا بِي لَعَلَّهُمْ يَرْشُدُونَ"], "en": ["When My servants ask you ˹O Prophet˺ about Me: I am truly near. I respond to one’s prayer when they call upon Me. So let them respond ˹with obedience˺ to Me and believe in Me, perhaps they will be guided ˹to the Right Way˺"], "en2": ["And when My servants ask you, [O Muhammad], concerning Me - indeed I am near. I respond to the invocation of the supplicant when he calls upon Me. So let them respond to Me [by obedience] and believe in Me that they may be [rightly] guided"]}, {"ref": "20:25-28", "s": "Taa-Haa", "se": "Taa-Haa", "ar": ["قَالَ رَبِّ اشْرَحْ لِي صَدْرِي", "وَيَسِّرْ لِي أَمْرِي", "وَاحْلُلْ عُقْدَةً مِنْ لِسَانِي", "يَفْقَهُوا قَوْلِي"], "en": ["Moses prayed, “My Lord! Uplift my heart for me", "and make my task easy", "and remove the impediment from my tongue", "so people may understand my speech"], "en2": ["[Moses] said, \"My Lord, expand for me my breast [with assurance]", "And ease for me my task", "And untie the knot from my tongue", "That they may understand my speech"]}, {"ref": "71:10", "s": "Nooh", "se": "Noah", "ar": ["فَقُلْتُ اسْتَغْفِرُوا رَبَّكُمْ إِنَّهُ كَانَ غَفَّارًا"], "en": ["saying, ‘Seek your Lord’s forgiveness, ˹for˺ He is truly Most Forgiving"], "en2": ["And said, 'Ask forgiveness of your Lord. Indeed, He is ever a Perpetual Forgiver"]}, {"ref": "3:159", "s": "Aal-i-Imraan", "se": "The Family of Imraan", "ar": ["فَبِمَا رَحْمَةٍ مِنَ اللَّهِ لِنْتَ لَهُمْ ۖ وَلَوْ كُنْتَ فَظًّا غَلِيظَ الْقَلْبِ لَانْفَضُّوا مِنْ حَوْلِكَ ۖ فَاعْفُ عَنْهُمْ وَاسْتَغْفِرْ لَهُمْ وَشَاوِرْهُمْ فِي الْأَمْرِ ۖ فَإِذَا عَزَمْتَ فَتَوَكَّلْ عَلَى اللَّهِ ۚ إِنَّ اللَّهَ يُحِبُّ الْمُتَوَكِّلِينَ"], "en": ["It is out of Allah’s mercy that you ˹O Prophet˺ have been lenient with them. Had you been cruel or hard-hearted, they would have certainly abandoned you. So pardon them, ask Allah’s forgiveness for them, and consult with them in ˹conducting˺ matters. Once you make a decision, put your trust in Allah. Surely Allah loves those who trust in Him"], "en2": ["So by mercy from Allah, [O Muhammad], you were lenient with them. And if you had been rude [in speech] and harsh in heart, they would have disbanded from about you. So pardon them and ask forgiveness for them and consult them in the matter. And when you have decided, then rely upon Allah. Indeed, Allah loves those who rely [upon Him]"]}, {"ref": "94:7-8", "s": "Ash-Sharh", "se": "The Consolation", "ar": ["فَإِذَا فَرَغْتَ فَانْصَبْ", "وَإِلَىٰ رَبِّكَ فَارْغَبْ"], "en": ["So once you have fulfilled ˹your duty˺, strive ˹in devotion˺", "turning to your Lord ˹alone˺ with hope"], "en2": ["So when you have finished [your duties], then stand up [for worship]", "And to your Lord direct [your] longing"]}, {"ref": "17:78", "s": "Al-Israa", "se": "The Night Journey", "ar": ["أَقِمِ الصَّلَاةَ لِدُلُوكِ الشَّمْسِ إِلَىٰ غَسَقِ اللَّيْلِ وَقُرْآنَ الْفَجْرِ ۖ إِنَّ قُرْآنَ الْفَجْرِ كَانَ مَشْهُودًا"], "en": ["Observe the prayer from the decline of the sun until the darkness of the night and the dawn prayer, for certainly the dawn prayer is witnessed ˹by angels˺"], "en2": ["Establish prayer at the decline of the sun [from its meridian] until the darkness of the night and [also] the Qur'an of dawn. Indeed, the recitation of dawn is ever witnessed"]}, {"ref": "39:10", "s": "Az-Zumar", "se": "The Groups", "ar": ["قُلْ يَا عِبَادِ الَّذِينَ آمَنُوا اتَّقُوا رَبَّكُمْ ۚ لِلَّذِينَ أَحْسَنُوا فِي هَٰذِهِ الدُّنْيَا حَسَنَةٌ ۗ وَأَرْضُ اللَّهِ وَاسِعَةٌ ۗ إِنَّمَا يُوَفَّى الصَّابِرُونَ أَجْرَهُمْ بِغَيْرِ حِسَابٍ"], "en": ["Say ˹O Prophet, that Allah says˺, “O My servants who believe! Be mindful of your Lord. Those who do good in this world will have a good reward. And Allah’s earth is spacious. Only those who endure patiently will be given their reward without limit.”"], "en2": ["Say, \"O My servants who have believed, fear your Lord. For those who do good in this world is good, and the earth of Allah is spacious. Indeed, the patient will be given their reward without account"]}, {"ref": "12:87", "s": "Yusuf", "se": "Joseph", "ar": ["يَا بَنِيَّ اذْهَبُوا فَتَحَسَّسُوا مِنْ يُوسُفَ وَأَخِيهِ وَلَا تَيْأَسُوا مِنْ رَوْحِ اللَّهِ ۖ إِنَّهُ لَا يَيْأَسُ مِنْ رَوْحِ اللَّهِ إِلَّا الْقَوْمُ الْكَافِرُونَ"], "en": ["O my sons! Go and search ˹diligently˺ for Joseph and his brother. And do not lose hope in the mercy of Allah, for no one loses hope in Allah’s mercy except those with no faith.”"], "en2": ["O my sons, go and find out about Joseph and his brother and despair not of relief from Allah. Indeed, no one despairs of relief from Allah except the disbelieving people"]}, {"ref": "3:200", "s": "Aal-i-Imraan", "se": "The Family of Imraan", "ar": ["يَا أَيُّهَا الَّذِينَ آمَنُوا اصْبِرُوا وَصَابِرُوا وَرَابِطُوا وَاتَّقُوا اللَّهَ لَعَلَّكُمْ تُفْلِحُونَ"], "en": ["O believers! Patiently endure, persevere, stand on guard, and be mindful of Allah, so you may be successful"], "en2": ["O you who have believed, persevere and endure and remain stationed and fear Allah that you may be successful"]}, {"ref": "14:7", "s": "Ibrahim", "se": "Abraham", "ar": ["وَإِذْ تَأَذَّنَ رَبُّكُمْ لَئِنْ شَكَرْتُمْ لَأَزِيدَنَّكُمْ ۖ وَلَئِنْ كَفَرْتُمْ إِنَّ عَذَابِي لَشَدِيدٌ"], "en": ["And ˹remember˺ when your Lord proclaimed, ‘If you are grateful, I will certainly give you more. But if you are ungrateful, surely My punishment is severe.’”"], "en2": ["And [remember] when your Lord proclaimed, 'If you are grateful, I will surely increase you [in favor]; but if you deny, indeed, My punishment is severe"]}, {"ref": "99:7-8", "s": "Az-Zalzala", "se": "The Earthquake", "ar": ["فَمَنْ يَعْمَلْ مِثْقَالَ ذَرَّةٍ خَيْرًا يَرَهُ", "وَمَنْ يَعْمَلْ مِثْقَالَ ذَرَّةٍ شَرًّا يَرَهُ"], "en": ["So whoever does an atom’s weight of good will see it", "And whoever does an atom’s weight of evil will see it"], "en2": ["So whoever does an atom's weight of good will see it", "And whoever does an atom's weight of evil will see it"]}, {"ref": "33:41-42", "s": "Al-Ahzaab", "se": "The Clans", "ar": ["يَا أَيُّهَا الَّذِينَ آمَنُوا اذْكُرُوا اللَّهَ ذِكْرًا كَثِيرًا", "وَسَبِّحُوهُ بُكْرَةً وَأَصِيلًا"], "en": ["O believers! Always remember Allah often", "and glorify Him morning and evening"], "en2": ["O you who have believed, remember Allah with much remembrance", "And exalt Him morning and afternoon"]}, {"ref": "16:97", "s": "An-Nahl", "se": "The Bee", "ar": ["مَنْ عَمِلَ صَالِحًا مِنْ ذَكَرٍ أَوْ أُنْثَىٰ وَهُوَ مُؤْمِنٌ فَلَنُحْيِيَنَّهُ حَيَاةً طَيِّبَةً ۖ وَلَنَجْزِيَنَّهُمْ أَجْرَهُمْ بِأَحْسَنِ مَا كَانُوا يَعْمَلُونَ"], "en": ["Whoever does good, whether male or female, and is a believer, We will surely bless them with a good life, and We will certainly reward them according to the best of their deeds"], "en2": ["Whoever does righteousness, whether male or female, while he is a believer - We will surely cause him to live a good life, and We will surely give them their reward [in the Hereafter] according to the best of what they used to do"]}, {"ref": "103:1-3", "s": "Al-Asr", "se": "The Declining Day, Epoch", "ar": ["بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ وَالْعَصْرِ", "إِنَّ الْإِنْسَانَ لَفِي خُسْرٍ", "إِلَّا الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَتَوَاصَوْا بِالْحَقِّ وَتَوَاصَوْا بِالصَّبْرِ"], "en": ["By the ˹passage of˺ time", "Surely humanity is in ˹grave˺ loss", "except those who have faith, do good, and urge each other to the truth, and urge each other to perseverance"], "en2": ["By time", "Indeed, mankind is in loss", "Except for those who have believed and done righteous deeds and advised each other to truth and advised each other to patience"]}, {"ref": "23:1-2", "s": "Al-Muminoon", "se": "The Believers", "ar": ["بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ قَدْ أَفْلَحَ الْمُؤْمِنُونَ", "الَّذِينَ هُمْ فِي صَلَاتِهِمْ خَاشِعُونَ"], "en": ["Successful indeed are the believers", "those who humble themselves in prayer"], "en2": ["Certainly will the believers have succeeded", "They who are during their prayer humbly submissive"]}, {"ref": "29:45", "s": "Al-Ankaboot", "se": "The Spider", "ar": ["اتْلُ مَا أُوحِيَ إِلَيْكَ مِنَ الْكِتَابِ وَأَقِمِ الصَّلَاةَ ۖ إِنَّ الصَّلَاةَ تَنْهَىٰ عَنِ الْفَحْشَاءِ وَالْمُنْكَرِ ۗ وَلَذِكْرُ اللَّهِ أَكْبَرُ ۗ وَاللَّهُ يَعْلَمُ مَا تَصْنَعُونَ"], "en": ["Recite what has been revealed to you of the Book and establish prayer. Indeed, ˹genuine˺ prayer should deter ˹one˺ from indecency and wickedness. The remembrance of Allah is ˹an˺ even greater ˹deterrent˺. And Allah ˹fully˺ knows what you ˹all˺ do"], "en2": ["Recite, [O Muhammad], what has been revealed to you of the Book and establish prayer. Indeed, prayer prohibits immorality and wrongdoing, and the remembrance of Allah is greater. And Allah knows that which you do"]}, {"ref": "2:201", "s": "Al-Baqara", "se": "The Cow", "ar": ["وَمِنْهُمْ مَنْ يَقُولُ رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ"], "en": ["Yet there are others who say, “Our Lord! Grant us the good of this world and the Hereafter, and protect us from the torment of the Fire.”"], "en2": ["But among them is he who says, \"Our Lord, give us in this world [that which is] good and in the Hereafter [that which is] good and protect us from the punishment of the Fire"]}, {"ref": "2:286", "s": "Al-Baqara", "se": "The Cow", "ar": ["لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا ۚ لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا اكْتَسَبَتْ ۗ رَبَّنَا لَا تُؤَاخِذْنَا إِنْ نَسِينَا أَوْ أَخْطَأْنَا ۚ رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَا إِصْرًا كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِنْ قَبْلِنَا ۚ رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِ ۖ وَاعْفُ عَنَّا وَاغْفِرْ لَنَا وَارْحَمْنَا ۚ أَنْتَ مَوْلَانَا فَانْصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ"], "en": ["Allah does not require of any soul more than what it can afford. All good will be for its own benefit, and all evil will be to its own loss. ˹The believers pray,˺ “Our Lord! Do not punish us if we forget or make a mistake. Our Lord! Do not place a burden on us like the one you placed on those before us. Our Lord! Do not burden us with what we cannot bear. Pardon us, forgive us, and have mercy on us. You are our ˹only˺ Guardian. So grant us victory over the disbelieving people.”"], "en2": ["Allah does not charge a soul except [with that within] its capacity. It will have [the consequence of] what [good] it has gained, and it will bear [the consequence of] what [evil] it has earned. \"Our Lord, do not impose blame upon us if we have forgotten or erred. Our Lord, and lay not upon us a burden like that which You laid upon those before us. Our Lord, and burden us not with that which we have no ability to bear. And pardon us; and forgive us; and have mercy upon us. You are our protector, so give us victory over the disbelieving people"]}, {"ref": "18:10", "s": "Al-Kahf", "se": "The Cave", "ar": ["إِذْ أَوَى الْفِتْيَةُ إِلَى الْكَهْفِ فَقَالُوا رَبَّنَا آتِنَا مِنْ لَدُنْكَ رَحْمَةً وَهَيِّئْ لَنَا مِنْ أَمْرِنَا رَشَدًا"], "en": ["˹Remember˺ when those youths took refuge in the cave, and said, “Our Lord! Grant us mercy from Yourself and guide us rightly through our ordeal.”"], "en2": ["[Mention] when the youths retreated to the cave and said, \"Our Lord, grant us from Yourself mercy and prepare for us from our affair right guidance"]}, {"ref": "28:24", "s": "Al-Qasas", "se": "The Stories", "ar": ["فَسَقَىٰ لَهُمَا ثُمَّ تَوَلَّىٰ إِلَى الظِّلِّ فَقَالَ رَبِّ إِنِّي لِمَا أَنْزَلْتَ إِلَيَّ مِنْ خَيْرٍ فَقِيرٌ"], "en": ["So he watered ˹their herd˺ for them, then withdrew to the shade and prayed, “My Lord! I am truly in ˹desperate˺ need of whatever provision You may have in store for me.”"], "en2": ["So he watered [their flocks] for them; then he went back to the shade and said, \"My Lord, indeed I am, for whatever good You would send down to me, in need"]}];
 const PRAYERS=[["fajr","Fajr"],["dhuhr","Dhuhr"],["asr","Asr"],["maghrib","Maghrib"],["isha","Isha"]];
 const PSTATE=["Not yet","On time","Late","Missed"];
 const P_ICON={fajr:"sunrise",dhuhr:"sun",asr:"sunlow",maghrib:"sunset",isha:"moon"};
@@ -362,8 +413,8 @@ const KIND=[
 ];
 
 /* ---------- state ---------- */
-const DEFAULT_SETTINGS={budget:"",worryTime:"17:00",ifthen:DEFAULT_IFTHEN,project:"",routines:DEFAULT_ROUTINES,qPage:1,qPages:2,bedtime:"23:30",waterGoal:8};
-let days={}, settings=JSON.parse(JSON.stringify(DEFAULT_SETTINGS));
+const DEFAULT_SETTINGS={budget:"",worryTime:"17:00",ifthen:DEFAULT_IFTHEN,project:"",routines:DEFAULT_ROUTINES,qPage:1,qPages:2,trans:"clear",jobGoal:10,jobPeriod:"day",jobMsg:"",bedtime:"23:30",waterGoal:8};
+let days={}, settings=JSON.parse(JSON.stringify(DEFAULT_SETTINGS)), jobs={contacts:[]};
 let cur=todayKey(), tab=defaultTab();
 let mode="local", db=null, uid=null;
 
@@ -386,13 +437,18 @@ function blankDay(k){
     prayers:Object.fromEntries(PRAYERS.map(p=>[p[0],0])),astaghfar:0,
     focus:0,focusMin:0,walk:false,build:false,buildNote:"",urges:0,scrollMin:"",
     wins:["","",""],shukr:["","",""],kind:"",tomorrow:"",spend:[],waitStay:0,waitSwitch:0,
-    routine:{},water:0,quran:{read:false,from:0,to:0},reflect:""};
+    routine:{},water:0,quran:{read:false,from:0,to:0},reflect:"",todos:[],chat:[]};
 }
 function day(k=cur){
   if(!days[k]) days[k]=blankDay(k);
   else { const b=blankDay(k); for(const key in b){ if(!(key in days[k])) days[k][key]=b[key]; } }
-  return days[k];
+  const d=days[k];
+  if(!d.todosMigrated){ (d.tasks||[]).forEach(t=>{ if(t&&t.text) d.todos.push({id:tid(),text:t.text,when:t.when||"Anytime",done:!!t.done}); }); d.tasks=[]; d.todosMigrated=true; }
+  const prev=days[shift(k,-1)];
+  if(!d.mit.text&&!d.mitTouched&&!d.mit.done&&prev&&prev.tomorrow) d.mit.text=prev.tomorrow;
+  return d;
 }
+function tid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
 
 /* ---------- routines ---------- */
 function lastDone(id,before){let best=null;for(const k in days){if(k<before&&days[k].routine&&days[k].routine[id]&&(!best||k>best))best=k;}return best;}
@@ -412,6 +468,7 @@ function score(d){
   let s=0;
   PRAYERS.forEach(([p])=>{const v=d.prayers[p]; if(v===1) s+=8; else if(v===2) s+=5;});
   if(d.mit.done) s+=15; else if(d.mit.text) s+=3;
+  { const td=(d.todos||[]); if(td.length) s+=Math.round(td.filter(t=>t.done).length/td.length*6); }
   if(d.focus>0) s+=Math.min(8,d.focus*4);
   if(d.astaghfar>0) s+=Math.min(7,Math.round(d.astaghfar/165*7));
   if(d.quran&&d.quran.read) s+=10;
@@ -429,7 +486,7 @@ function kept(d){
 function flowersToday(d){
   let n=prayed(d);
   n+=Object.values(d.routine||{}).filter(Boolean).length;
-  if(d.mit.done) n+=1; n+=d.tasks.filter(t=>t.done).length;
+  if(d.mit.done) n+=1; n+=(d.todos||[]).filter(t=>t.done).length;
   n+=d.focus; if(d.quran&&d.quran.read) n+=1; if((d.water||0)>=(Number(settings.waterGoal)||8)) n+=1;
   if(d.walk) n+=1; if(d.build) n+=1;
   return n;
@@ -445,22 +502,22 @@ function chainLen(){
 
 /* ---------- persistence ---------- */
 function loadLocal(){
-  try{const raw=localStorage.getItem(LS); if(raw){const o=JSON.parse(raw); days=o.days||{}; if(o.settings) settings={...settings,...o.settings};}}catch(e){}
+  try{const raw=localStorage.getItem(LS); if(raw){const o=JSON.parse(raw); days=o.days||{}; if(o.settings) settings={...settings,...o.settings}; if(o.jobs&&Array.isArray(o.jobs.contacts)) jobs=o.jobs;}}catch(e){}
   fixSettings();
 }
 function fixSettings(){
   if(!Array.isArray(settings.routines)||!settings.routines.length) settings.routines=clone(DEFAULT_ROUTINES);
   if(!Array.isArray(settings.ifthen)) settings.ifthen=clone(DEFAULT_IFTHEN);
-  ["qPage","qPages","bedtime","waterGoal","worryTime","budget","project"].forEach(k=>{if(settings[k]===undefined) settings[k]=DEFAULT_SETTINGS[k];});
+  ["qPage","qPages","trans","jobGoal","jobPeriod","jobMsg","bedtime","waterGoal","worryTime","budget","project"].forEach(k=>{if(settings[k]===undefined) settings[k]=DEFAULT_SETTINGS[k];});
 }
-function saveLocal(){try{localStorage.setItem(LS,JSON.stringify({days,settings}))}catch(e){}}
+function saveLocal(){try{localStorage.setItem(LS,JSON.stringify({days,settings,jobs}))}catch(e){}}
 const timers={}, chains={};
 function persist(k){
   saveLocal(); setSave("Saving…");
   clearTimeout(timers[k]);
   timers[k]=setTimeout(()=>{
     if(mode!=="db"){setSave("Saved");return;}
-    const body=k==="settings"?settings:days[k]; if(!body){setSave("Saved");return;}
+    const body=k==="settings"?settings:k==="jobs"?jobs:days[k]; if(!body){setSave("Saved");return;}
     const snap=clone(body);
     chains[k]=(chains[k]||Promise.resolve()).then(()=>db.collection("data/users/"+uid).doc(k).set(snap))
       .then(()=>setSave("Saved")).catch(e=>setSave(e&&e.code==="quota_exceeded"?"Storage full":"Saved on device"));
@@ -478,6 +535,7 @@ async function connect(){
     const remote={};
     snap.docs.forEach(doc=>{ if(doc.exists) remote[doc.id]=doc.data(); });
     if(remote.settings){ settings={...settings,...clone(remote.settings)}; delete remote.settings; }
+    if(remote.jobs){ if(Array.isArray(remote.jobs.contacts)) jobs=clone(remote.jobs); delete remote.jobs; } else if(jobs.contacts.length) persist("jobs");
     fixSettings();
     const had=Object.keys(remote).length>0;
     Object.keys(remote).forEach(k=>{ days[k]=clone(remote[k]); });
@@ -488,7 +546,7 @@ async function connect(){
   }catch(e){}
 }
 async function exportData(){
-  const name="planner-backup-"+todayKey()+".json", data=JSON.stringify({app:"itrat-planner",version:2,exported:new Date().toISOString(),days,settings},null,1);
+  const name="planner-backup-"+todayKey()+".json", data=JSON.stringify({app:"itrat-planner",version:3,exported:new Date().toISOString(),days,settings,jobs},null,1);
   if(!STANDALONE&&window.claude&&window.claude.use){
     try{const dl=await window.claude.use("downloads"); if(dl){await dl.save({filename:name,data}); toast("Backup saved."); return;}}catch(e){ if(e&&e.code==="declined"){toast("Backup cancelled.");return;} }
   }
@@ -500,6 +558,7 @@ function importData(file){
   fr.onload=()=>{try{const o=JSON.parse(fr.result); if(!o||typeof o.days!=="object") throw 0;
       Object.keys(o.days).forEach(k=>{days[k]=o.days[k]; persist(k);});
       if(o.settings){settings={...settings,...o.settings}; fixSettings(); persist("settings");}
+      if(o.jobs&&Array.isArray(o.jobs.contacts)){ const ids=new Set(jobs.contacts.map(c=>c.id)); o.jobs.contacts.forEach(c=>{ if(!ids.has(c.id)) jobs.contacts.push(c); }); persist("jobs"); }
       toast("Imported "+Object.keys(o.days).length+" days."); renderAll();
     }catch(e){toast("That file isn't a planner backup.");}};
   fr.readAsText(file);
@@ -535,7 +594,7 @@ function checkBtn(path,on,title,sub,extra="",icon="",tone="blue"){return `<butto
 function ayahCard(a,title){
   return `<section class="sec ayah"><div class="head"><span class="row">${I("sparkle","gold","sm")}<span class="label">${title}</span></span></div>
     <p class="ar" lang="ar">${a.ar.map(esc).join(" ۝ ")}</p>
-    <p class="en">${a.en.map(esc).join(" ")}</p>
+    <p class="en">${(transKey()==="saheeh"&&a.en2?a.en2:a.en).map(esc).join(" ")}</p>
     <p class="ref">Surah ${esc(a.s)} (${esc(a.se)}) · ${a.ref}</p></section>`;
 }
 function routineSection(slot,title,why){
@@ -613,10 +672,272 @@ function routineIcon(r){ if(R_ICON[r.id]) return R_ICON[r.id]; const n=(r.name||
   for(const [k,v] of kw) if(n.includes(k)) return v; return "sparkle";}
 const SLOT_TONE={morning:"peach",day:"blue",night:"lilac"};
 
+
+/* ---------- tasks ---------- */
+const SLOTS=["Anytime","Morning","After Fajr","After Dhuhr","After Asr","After Maghrib","After Isha","Evening"];
+let addWhen={};
+function todoSection(k,title,opts={}){
+  const d=day(k), list=d.todos||[], isTomorrow=k>cur&&k===shift(cur,1);
+  const order=w=>{const i=SLOTS.indexOf(w);return i<0?0:i;};
+  const open=list.filter(t=>!t.done).sort((a,b)=>order(a.when)-order(b.when)), done=list.filter(t=>t.done);
+  const groups={}; open.forEach(t=>{(groups[t.when]=groups[t.when]||[]).push(t);});
+  const when=addWhen[k]||(isTomorrow?"Anytime":"Anytime");
+  const row=t=>`<div class="todo ${t.done?"done":""}"><button class="tk" data-act="todo" data-k="${k}" data-id="${t.id}" aria-pressed="${t.done}"><span class="box"></span><span><b>${esc(t.text)}</b>${t.when!=="Anytime"?`<span class="small muted">${esc(t.when)}</span>`:""}</span></button>
+    ${!t.done&&opts.move?`<button class="mv" data-act="todoMove" data-k="${k}" data-id="${t.id}" data-to="${opts.move.to}">${opts.move.label}</button>`:""}<button class="del" data-act="todoDel" data-k="${k}" data-id="${t.id}" aria-label="Delete ${esc(t.text)}">×</button></div>`;
+  return `<section class="sec">
+    <div class="head"><div class="row" style="justify-content:space-between"><h2 class="ht">${I(opts.icon||"list",opts.tone||"green")}${title}</h2>${list.length?`<span class="tag">${done.length}/${list.length}</span>`:""}</div>${opts.hint?`<p class="hint">${opts.hint}</p>`:""}</div>
+    ${opts.carry||""}
+    <div class="addrow"><input type="text" id="todoIn-${k}" data-todoadd="${k}" placeholder="${opts.placeholder||"Add a task…"}" enterkeyhint="done" autocomplete="off"><button class="btn primary" data-act="todoAdd" data-k="${k}" aria-label="Add task">${I("plus","blue","xs")}Add</button></div>
+    <div class="pills">${SLOTS.map(s=>`<button class="pill" data-act="todoWhen" data-k="${k}" data-w="${s}" aria-pressed="${when===s}">${s}</button>`).join("")}</div>
+    ${open.length?Object.keys(groups).map(w=>`<div class="slotgrp">${Object.keys(groups).length>1||w!=="Anytime"?`<span class="slotlbl">${esc(w)}</span>`:""}${groups[w].map(row).join("")}</div>`).join(""):(done.length?`<p class="hint">All done. MashaAllah.</p>`:`<p class="hint">${opts.empty||"No tasks yet. Add as many as you like."}</p>`)}
+    ${done.length?`<div class="slotgrp"><span class="slotlbl">Done</span>${done.map(row).join("")}</div>`:""}
+  </section>`;
+}
+function carryBanner(){
+  const y=shift(cur,-1), yd=days[y]; if(!yd||!yd.todos) return "";
+  const left=yd.todos.filter(t=>!t.done); if(!left.length) return "";
+  return `<div class="carry"><span><b>${left.length} unfinished from yesterday</b><br><span class="small muted">${left.slice(0,3).map(t=>esc(t.text)).join(", ")}${left.length>3?"…":""}</span></span><button class="btn sun" data-act="carry">Bring to today</button></div>`;
+}
+
+
+/* ---------- good morning, claude ---------- */
+let SAMPLE=null, chatBusy=false, chatCtl=null, chatErr="";
+async function initSample(){ if(STANDALONE||!window.claude||!window.claude.use) return; try{ SAMPLE=await window.claude.use("sample"); }catch(e){ SAMPLE=null; } if(tab==="morning") renderPanel(); }
+function planContext(){
+  const d=day(), a=dailyAyah(cur), y=days[shift(cur,-1)];
+  const due=settings.routines.filter(r=>routineStatus(r,cur).due).map(r=>r.name);
+  const lines=[
+    "Date: "+parseKey(cur).toLocaleDateString("en-GB",{weekday:"long",day:"numeric",month:"long"}),
+    "Local time: "+new Date().toLocaleTimeString([], {hour:"2-digit",minute:"2-digit"}),
+    d.sleep?"Hours slept: "+d.sleep:"", d.energy?"Energy: "+["Drained","Low","Okay","Good","Sharp"][d.energy-1]:"", d.mood?"Mood: "+["Heavy","Low","Neutral","Calm","Bright"][d.mood-1]:"",
+    "Today's one thing: "+(d.mit.text||"(not set yet)")+(d.mit.step?" — first step: "+d.mit.step:""),
+    "Tasks: "+((d.todos||[]).filter(t=>!t.done).map(t=>t.text+(t.when!=="Anytime"?" ("+t.when+")":"")).join("; ")||"(none yet)"),
+    "Prayers marked so far: "+prayed(d)+"/5",
+    "Routines due today: "+due.join(", "),
+    "Current chain: "+chainLen()+" days",
+    y?("Yesterday: score "+score(y)+(y.wins&&y.wins.some(Boolean)?", wins: "+y.wins.filter(Boolean).join("; "):"")):"",
+    "Ayah of the day ("+a.ref+"): "+a.en.join(" ")
+  ].filter(Boolean);
+  return lines.join("\n");
+}
+const CHAT_RULES="You are Claude, greeting Itrat as he starts his day. He's a software developer in Multan, Pakistan, and a practising Muslim working on praying on time, doing astaghfar, scrolling less, moving more, and starting work without overthinking. He tends to worry that he's wasting his potential, and that worry drains him. Be warm, upbeat and brief, like a supportive friend. Reply in plain text, no markdown, no headings, under 90 words unless he asks for more. Greet him back naturally (he may say salam; reply wa alaikum assalam). Mention one specific thing from his plan below, suggest one tiny first step for the next 10 minutes, and end with one short question. Never lecture or list everything. If he seems low, be gentle and suggest a minimum day.\n\nHis plan for today:\n";
+function chatView(){
+  const d=day(), chat=d.chat||[], isToday=cur===todayKey();
+  if(!isToday&&!chat.length) return "";
+  const msgs=chat.map(m=>`<div class="msg ${m.role==="user"?"me":"cl"}">${esc(m.content)}</div>`).join("")+(chatBusy?`<div class="msg cl thinking" id="chatLive">Thinking…</div>`:"");
+  const canAsk=!!SAMPLE&&isToday;
+  const open=`<div class="row"><a class="btn" href="https://claude.ai/new?q=${encodeURIComponent(openMsg())}" target="_blank" rel="noopener">${I("link","blue","xs")}Open in Claude app</a><button class="btn ghost" data-act="copyHi">Copy message</button></div>`;
+  return `<section class="sec hi">
+    <div class="head"><h2 class="ht">${I("smile","peach")}Good morning, Claude</h2>${chat.length?"":`<p class="hint">Say hi as soon as you wake up. Claude will look at your plan and help you start.</p>`}</div>
+    ${chat.length||chatBusy?`<div class="chat">${msgs}</div>`:""}
+    ${chatErr?`<p class="small" style="color:#C24661">${esc(chatErr)}</p>`:""}
+    ${canAsk?`${chat.length?"":`<div class="quick">${["Assalamu alaikum Claude, I'm up!","Good morning! Help me start today","I'm feeling low this morning"].map(q=>`<button class="pill" data-act="hiQuick" data-q="${esc(q)}">${esc(q)}</button>`).join("")}</div>`}
+    <div class="addrow"><input type="text" id="chatIn" placeholder="${chat.length?"Reply to Claude…":"Say hi to Claude…"}" enterkeyhint="send" autocomplete="off"${chatBusy?" disabled":""}><button class="btn primary" data-act="chatSend"${chatBusy?" disabled":""}>Send</button></div>
+    ${chat.length?open:""}`:`${STANDALONE?`<p class="hint">Tap below to start your morning chat in the Claude app. Your plan for today is included.</p>`:`<p class="hint">Chatting here isn't available right now. You can start in the Claude app instead.</p>`}${open}`}
+  </section>`;
+}
+function openMsg(){ return "Assalamu alaikum Claude! I just woke up. Here's my plan for today. Help me start well, keep it short and friendly, and suggest one tiny first step.\n\n"+planContext(); }
+async function sendChat(text){
+  text=(text||"").trim(); if(!text||chatBusy||!SAMPLE) return;
+  const d=day(); d.chat=d.chat||[]; d.chat.push({role:"user",content:text}); persist(cur);
+  chatBusy=true; chatErr=""; renderPanel();
+  const turns=[{role:"user",content:CHAT_RULES+planContext()+"\n\n(Reply to his next message.)"},{role:"assistant",content:"Understood."},...d.chat.slice(-12)];
+  chatCtl=new AbortController();
+  try{
+    const {text:out}=await SAMPLE(turns,{modelTier:"quick",cache:false,signal:chatCtl.signal,onText:({text})=>{const el=document.getElementById("chatLive"); if(el){el.textContent=text; el.classList.remove("thinking");}}});
+    d.chat.push({role:"assistant",content:out.trim()}); persist(cur);
+  }catch(e){
+    if(e&&e.text) { d.chat.push({role:"assistant",content:e.text.trim()}); persist(cur); }
+    chatErr=e&&e.code==="not_granted"?"Claude wasn't allowed to answer. Allow it when asked, or use the Claude app button.":e&&e.code==="rate_limited"?"Too many messages at once. Wait a moment and try again.":e&&e.code==="cancelled"?"":"Claude couldn't answer just now. Try again in a moment, or use the Claude app.";
+  }
+  chatBusy=false; if(tab==="morning") { renderPanel(); const inp=document.getElementById("chatIn"); if(inp) inp.focus(); }
+}
+
+
+/* ---------- jobs ---------- */
+const JSTAT=["Reached","Replied","Interview","Offer","No reply","Not a fit"];
+const JCH=["LinkedIn","Email","WhatsApp","Referral","Other"];
+let jobCh="LinkedIn", jobFilter="Open";
+const DEFAULT_JOBMSG="Hi [Name], I came across [Company] and really like what your team is building. I'm a full-stack developer (.NET Core / C#, APIs, DevOps) and I build with AI tools every day. I'd love to help. Could I share my portfolio, or would you have 10 minutes for a quick chat? Thank you, Itrat";
+function stKey(s){return "st-"+s.replace(/\s+/g,"");}
+function reachedOn(k){return jobs.contacts.filter(c=>c.date===k).length;}
+function reachedWeek(ws){let n=0;for(let i=0;i<7;i++)n+=reachedOn(shift(ws,i));return n;}
+function jobProgress(k=cur){const g=Math.max(1,Number(settings.jobGoal)||10);const n=settings.jobPeriod==="week"?reachedWeek(weekStart(k)):reachedOn(k);return {n,g,label:settings.jobPeriod==="week"?"this week":"today"};}
+function jobStreak(){ if(settings.jobPeriod==="week") return 0; const g=Math.max(1,Number(settings.jobGoal)||10); let k=todayKey(),n=0; if(reachedOn(k)<g) k=shift(k,-1); while(reachedOn(k)>=g&&n<999){n++;k=shift(k,-1);} return n; }
+function jobsMini(){
+  const {n,g,label}=jobProgress(); const pct=Math.min(100,n/g*100);
+  return `<section class="sec"><div class="head"><div class="row" style="justify-content:space-between"><h2 class="ht">${I("bag","gold")}Job outreach</h2><span class="tag">${n}/${g} ${label}</span></div></div>
+    <div class="bar"><i style="width:${pct}%"></i></div>
+    <button class="btn ${n>=g?"":"primary"}" data-act="gotab" data-tab="jobs">${n>=g?"Goal reached. See your list":"Reach out to someone now"}</button></section>`;
+}
+function viewJobs(){
+  const {n,g,label}=jobProgress(), t=todayKey(), streak=jobStreak();
+  const due=jobs.contacts.filter(c=>c.status==="Reached"&&c.followUp&&c.followUp<=t).sort((a,b)=>a.followUp<b.followUp?-1:1);
+  const cnt=s=>jobs.contacts.filter(c=>c.status===s).length, total=jobs.contacts.length;
+  const replied=jobs.contacts.filter(c=>["Replied","Interview","Offer"].includes(c.status)).length;
+  const ws=weekStart(t), wk=[]; for(let i=0;i<7;i++){const k=shift(ws,i);wk.push([k,reachedOn(k)]);}
+  const wmax=Math.max(settings.jobPeriod==="day"?g:1,...wk.map(x=>x[1]));
+  const list=jobs.contacts.filter(c=>jobFilter==="All"?true:jobFilter==="Open"?["Reached","Replied","Interview"].includes(c.status):c.status===jobFilter).sort((a,b)=>(b.date||"").localeCompare(a.date||"")||(b.t||0)-(a.t||0));
+  const msg=settings.jobMsg||DEFAULT_JOBMSG;
+  return `
+  <section class="sec">
+    <div class="head"><h2 class="ht">${I("target","gold")}Your goal</h2><p class="why">Reaching people directly, like a hiring manager or an engineer on the team, gets far more replies than applying through a form. Ten real conversations started beats a hundred applications.</p></div>
+    <div class="goalbig"><b>${n}</b><span>of ${g} people reached ${label}</span></div>
+    <div class="bar"><i style="width:${Math.min(100,n/g*100)}%"></i></div>
+    ${n>=g?`<p class="kind">${I("trophy","gold")}<span>Goal done ${label}. MashaAllah. Anything more is a bonus.</span></p>`:`<p class="hint">${g-n} more to go ${label}.${streak?` You've hit your goal ${streak} day${streak===1?"":"s"} in a row.`:""}</p>`}
+  </section>
+  <section class="sec">
+    <div class="head"><h2 class="ht">${I("plus","green")}I reached someone</h2></div>
+    <div class="row"><input type="text" id="jName" class="grow" placeholder="Name" autocomplete="off"><input type="text" id="jCompany" class="grow" placeholder="Company" autocomplete="off"></div>
+    <div class="row"><input type="text" id="jRole" class="grow" placeholder="Their role (e.g. CTO, Engineering Manager)" autocomplete="off"><input type="text" id="jLink" class="grow" placeholder="Profile link (optional)" autocomplete="off" inputmode="url"></div>
+    <div class="pills">${JCH.map(c=>`<button class="pill" data-act="jCh" data-c="${c}" aria-pressed="${jobCh===c}">${c}</button>`).join("")}</div>
+    <button class="btn primary" data-act="jAdd" style="padding:13px">Add · ${n+1} of ${g}</button>
+    <p class="small muted">A follow-up reminder is set for 4 days later.</p>
+  </section>
+  ${due.length?`<section class="sec"><div class="head"><div class="row" style="justify-content:space-between"><h2 class="ht">${I("bolt","peach")}Follow up today</h2><span class="tag">${due.length}</span></div><p class="hint">A polite second message doubles your chances. Keep it to one line.</p></div>
+    ${due.map(c=>`<div class="fu"><span class="who"><b>${esc(c.name)}</b><br><span class="small muted">${esc(c.company||"")} · ${esc(c.channel||"")} · reached ${diffDays(c.date,t)} days ago${c.fups?` · followed up ${c.fups}×`:""}</span></span><button class="btn" data-act="jFollow" data-id="${c.id}">Followed up</button><button class="btn sun" data-act="jReplied" data-id="${c.id}">They replied</button></div>`).join("")}
+  </section>`:""}
+  <section class="sec">
+    <div class="head"><h2 class="ht">${I("pen","lilac")}Message template</h2><p class="hint">Personalise the first line every time. Mention something real about them or their company.</p></div>
+    <textarea id="jobMsg" data-set="jobMsg">${esc(msg)}</textarea>
+    <button class="btn" data-act="jCopy">Copy message</button>
+  </section>
+  <section class="sec">
+    <div class="head"><h2 class="ht">${I("bars","blue")}This week</h2></div>
+    <div class="wk">${wk.map(([k,v],i)=>`<div class="col ${k===t?"today":""} ${k>t?"future":""}"><em>${v||""}</em><i style="height:${k>t?6:Math.max(2,v/wmax*100)}%"></i><span>${"MTWTFSS"[i]}</span></div>`).join("")}</div>
+    <div class="stats">
+      <div class="stat">${I("phone","blue","sm")}<b>${total}</b><span>people reached in total</span></div>
+      <div class="stat">${I("smile","green","sm")}<b>${total?Math.round(replied/total*100):0}%</b><span>reply rate (${replied})</span></div>
+      <div class="stat">${I("calendar","gold","sm")}<b>${cnt("Interview")}</b><span>interviews</span></div>
+      <div class="stat">${I("trophy","teal","sm")}<b>${cnt("Offer")}</b><span>offers</span></div>
+    </div>
+  </section>
+  <section class="sec">
+    <div class="head"><div class="row" style="justify-content:space-between"><h2 class="ht">${I("list","green")}People</h2><span class="tag">${list.length}</span></div></div>
+    <div class="pills">${["Open","All",...JSTAT].map(f=>`<button class="pill" data-act="jFilter" data-f="${f}" aria-pressed="${jobFilter===f}">${f}</button>`).join("")}</div>
+    ${list.length?list.slice(0,80).map(c=>`<div class="person"><div class="top">${I(c.channel==="Email"?"receipt":c.channel==="WhatsApp"?"phone":c.channel==="Referral"?"heart":"link","blue","sm")}<span class="who"><b>${esc(c.name)}</b><span class="small muted">${esc([c.role,c.company].filter(Boolean).join(" · "))}${c.link?` · <a href="${esc(/^https?:\/\//.test(c.link)?c.link:"https://"+c.link)}" target="_blank" rel="noopener">profile</a>`:""}<br>${esc(c.channel||"")} · ${parseKey(c.date).toLocaleDateString(undefined,{day:"numeric",month:"short"})}</span></span><span class="st ${stKey(c.status)}">${esc(c.status)}</span><button class="del" data-act="jDel" data-id="${c.id}" aria-label="Delete ${esc(c.name)}">×</button></div>
+      <div class="ctrl"><select data-jid="${c.id}" data-jf="status" aria-label="Status">${JSTAT.map(s=>`<option${s===c.status?" selected":""}>${s}</option>`).join("")}</select><input type="text" data-jid="${c.id}" data-jf="notes" value="${esc(c.notes||"")}" placeholder="Notes"></div></div>`).join(""):`<p class="hint">${total?"Nobody here with this status.":"No one yet. Add the first person above. Start with someone whose work you genuinely like."}</p>`}
+  </section>
+  <section class="sec">
+    <div class="head"><h2 class="ht">${I("gear","teal")}Goal settings</h2></div>
+    <div class="row"><span class="hint">Reach</span><input type="number" min="1" max="100" id="jobGoal" data-set="jobGoal" value="${esc(settings.jobGoal)}" style="width:80px" inputmode="numeric"><span class="hint">people per</span><select id="jobPeriod" data-set="jobPeriod" style="width:auto"><option value="day"${settings.jobPeriod==="day"?" selected":""}>day</option><option value="week"${settings.jobPeriod==="week"?" selected":""}>week</option></select></div>
+  </section>`;
+}
+
+/* ---------- monthly spending ---------- */
+let moneyMode="week", moneyMonth=null;
+function monthKeys(ym){const [y,m]=ym.split("-").map(Number);const n=new Date(y,m,0).getDate();return Array.from({length:n},(_,i)=>y+"-"+pad(m)+"-"+pad(i+1));}
+function shiftMonth(ym,n){const [y,m]=ym.split("-").map(Number);const d=new Date(y,m-1+n,1);return d.getFullYear()+"-"+pad(d.getMonth()+1);}
+function viewMonth(){
+  const t=todayKey(), ym=moneyMonth||cur.slice(0,7), keys=monthKeys(ym), [y,m]=ym.split("-").map(Number);
+  const vals=keys.map(k=>[k,spendOf(k)]), total=vals.reduce((a,v)=>a+v[1],0);
+  const prevTotal=monthKeys(shiftMonth(ym,-1)).reduce((a,k)=>a+spendOf(k),0);
+  const elapsed=keys.filter(k=>k<=t).length||keys.length, avg=total/Math.max(1,elapsed);
+  const mbudget=(Number(settings.budget)||0)*keys.length/7;
+  const cats={}, all=[]; keys.forEach(k=>(days[k]&&days[k].spend||[]).forEach(e=>{cats[e.cat]=(cats[e.cat]||0)+(Number(e.amt)||0);all.push({...e,k});}));
+  const catList=Object.entries(cats).sort((a,b)=>b[1]-a[1]), cmax=Math.max(1,...catList.map(c=>c[1]));
+  const top=all.sort((a,b)=>b.amt-a.amt).slice(0,5), vmax=Math.max(1,...vals.map(v=>v[1]));
+  const weeks={}; keys.forEach(k=>{const w=weekStart(k);weeks[w]=(weeks[w]||0)+spendOf(k);});
+  const ch=prevTotal?Math.round((total-prevTotal)/prevTotal*100):null;
+  const ratio=mbudget?total/mbudget:0, cls=!mbudget?"":ratio>1?"over":ratio>=.75?"hot":"ok";
+  return `
+  <section class="sec">
+    <div class="navrow"><button data-act="mPrev" aria-label="Previous month">‹</button><b>${new Date(y,m-1,1).toLocaleDateString(undefined,{month:"long",year:"numeric"})}</b><button data-act="mNext" aria-label="Next month">›</button></div>
+    <div class="money-top"><div class="mt ${cls}"><span>Spent</span><b>${money(total)}</b></div><div class="mt"><span>Per day</span><b>${money(avg)}</b></div><div class="mt"><span>Last month</span><b>${money(prevTotal)}</b></div></div>
+    ${ch!==null?`<p class="hint">${ch>0?`${ch}% more than last month.`:ch<0?`${-ch}% less than last month. Well done.`:"Same as last month."}</p>`:""}
+    ${mbudget?`<div class="bar money ${cls}"><i style="width:${Math.min(100,ratio*100)}%"></i></div><p class="small muted">Monthly budget from your weekly budget: ${money(mbudget)}</p>`:""}
+  </section>
+  <section class="sec">
+    <div class="head"><h2 class="ht">${I("bars","peach")}Day by day</h2></div>
+    <div class="mchart" style="grid-template-columns:repeat(${keys.length},1fr)">${vals.map(([k,v])=>`<i class="${k===t?"today":""} ${k>t?"fut":""}" style="height:${k>t?3:Math.max(2,v/vmax*100)}%" title="${k}: ${money(v)}"></i>`).join("")}</div>
+    <div class="axis"><span>1</span><span>${Math.ceil(keys.length/2)}</span><span>${keys.length}</span></div>
+  </section>
+  <section class="sec">
+    <div class="head"><h2 class="ht">${I("grid","lilac")}By category</h2></div>
+    ${catList.length?catList.map(([c,v])=>`<div class="catrow"><span style="font-weight:800">${esc(c)}</span><span class="track"><i style="width:${v/cmax*100}%"></i></span><span class="am">${money(v)}</span></div>`).join(""):`<p class="hint">No spending recorded this month.</p>`}
+  </section>
+  <section class="sec">
+    <div class="head"><h2 class="ht">${I("calendar","blue")}By week</h2></div>
+    ${Object.entries(weeks).map(([w,v])=>`<div class="kv"><span>Week of ${parseKey(w).toLocaleDateString(undefined,{day:"numeric",month:"short"})}</span><b>${money(v)}</b></div>`).join("")}
+  </section>
+  ${top.length?`<section class="sec"><div class="head"><h2 class="ht">${I("receipt","pink")}Biggest spends</h2></div>
+    ${top.map(e=>`<div class="exp">${I(C_ICON[e.cat]||"dots","lilac","sm")}<span class="cat">${esc(e.cat)}</span><span class="nt">${esc(e.note)||parseKey(e.k).toLocaleDateString(undefined,{day:"numeric",month:"short"})}</span><span class="am">${money(e.amt)}</span></div>`).join("")}</section>`:""}`;
+}
+
+/* ---------- weekly report ---------- */
+let reportWs=null;
+function weekStats(ws){
+  const o={onTime:0,prayed:0,quran:0,rt:0,n:0,todoDone:0,todoAll:0,mit:0,mitSet:0,focus:0,blocks:0,ast:0,water:0,walks:0,builds:0,kept:0,score:0,sleep:0,sleepN:0,scroll:0,urges:0,spend:0,out:0,days:[]};
+  for(let i=0;i<7;i++){const k=shift(ws,i),d=days[k]; o.spend+=spendOf(k); o.out+=reachedOn(k);
+    if(!d){o.days.push({k,score:null,pr:[]});continue;} o.n++;
+    PRAYERS.forEach(([p])=>{if(d.prayers[p]===1)o.onTime++; if(d.prayers[p]===1||d.prayers[p]===2)o.prayed++;});
+    if(d.quran&&d.quran.read) o.quran+=(d.quran.to-d.quran.from+1);
+    o.rt+=routineRatio(k); (d.todos||[]).forEach(t=>{o.todoAll++; if(t.done)o.todoDone++;});
+    if(d.mit.text)o.mitSet++; if(d.mit.done)o.mit++; o.focus+=d.focusMin||0; o.blocks+=d.focus||0; o.ast+=d.astaghfar||0; o.water+=d.water||0;
+    if(d.walk)o.walks++; if(d.build)o.builds++; if(kept(d))o.kept++; const sc=score(d); o.score+=sc;
+    if(Number(d.sleep)){o.sleep+=Number(d.sleep);o.sleepN++;} o.scroll+=Number(d.scrollMin)||0; o.urges+=d.urges||0;
+    o.days.push({k,score:sc,pr:PRAYERS.map(([p])=>d.prayers[p])});}
+  o.avgScore=o.n?Math.round(o.score/o.n):0; o.rtPct=o.n?Math.round(o.rt/o.n*100):0; return o;
+}
+function delta(a,b,better="up",unit=""){ if(b===null||b===undefined) return ""; const d=Math.round((a-b)*10)/10; if(!d) return `<span class="delta same">same</span>`; const good=(d>0)===(better==="up"); return `<span class="delta ${good?"up":"down"}">${d>0?"▲":"▼"} ${Math.abs(d)}${unit}</span>`; }
+function viewWeekly(){
+  const ws=reportWs||weekStart(todayKey()), we=shift(ws,6), A=weekStats(ws), B=weekStats(shift(ws,-7)), hasB=B.n>0;
+  const fmtD=k=>parseKey(k).toLocaleDateString(undefined,{day:"numeric",month:"short"});
+  const best=A.days.filter(x=>x.score!==null).sort((a,b)=>b.score-a.score)[0];
+  const rv=(days[ws]&&days[ws].review)||{}, prevRv=(days[shift(ws,-7)]&&days[shift(ws,-7)].review)||{};
+  const budget=Number(settings.budget)||0, jg=Number(settings.jobGoal)||10, jTarget=settings.jobPeriod==="week"?jg:jg*7;
+  const row=(icon,tone,label,val,dl)=>`<div class="kv"><span class="row" style="flex-wrap:nowrap">${I(icon,tone,"sm")}<span>${label}</span></span><span><b>${val}</b>${dl}</span></div>`;
+  return `
+  <section class="sec">
+    <div class="head"><h2 class="ht">${I("calendar","blue")}Weekly report</h2></div>
+    <div class="navrow"><button data-act="wPrev" aria-label="Previous week">‹</button><b>${fmtD(ws)} – ${fmtD(we)}</b><button data-act="wNext" aria-label="Next week">›</button></div>
+    <div class="wgrid">${A.days.map((x,i)=>`<div><div class="dn">${"MTWTFSS"[i]}</div><div class="sc ${x.score===null?"":x.score>=70?"l3":x.score>=45?"l2":"l1"}">${x.score===null?"–":x.score}</div><div class="pd">${(x.pr.length?x.pr:[0,0,0,0,0]).map(p=>`<i class="${p===1?"on":p===2?"late":""}"></i>`).join("")}</div></div>`).join("")}</div>
+    <p class="small muted">Daily score, with the five prayers as dots under each day.</p>
+    <div class="goalbig"><b>${A.avgScore}</b><span>average score ${hasB?delta(A.avgScore,B.avgScore):""}</span></div>
+    <p class="hint">${A.kept} of 7 days kept your chain.${best?` Best day: ${parseKey(best.k).toLocaleDateString(undefined,{weekday:"long"})} (${best.score}).`:""}</p>
+  </section>
+  <section class="sec">
+    <div class="head"><h2 class="ht">${I("mosque","gold")}Deen</h2></div>
+    ${row("mosque","gold","Prayers on time",A.onTime+"/35",hasB?delta(A.onTime,B.onTime):"")}
+    ${row("check","green","Prayers prayed",A.prayed+"/35",hasB?delta(A.prayed,B.prayed):"")}
+    ${row("book","blue","Quran pages",A.quran,hasB?delta(A.quran,B.quran):"")}
+    ${row("beads","lilac","Astaghfar",A.ast,hasB?delta(A.ast,B.ast):"")}
+  </section>
+  <section class="sec">
+    <div class="head"><h2 class="ht">${I("target","peach")}Work</h2></div>
+    ${row("target","gold","One thing done",A.mit+"/"+(A.mitSet||7)+" days",hasB?delta(A.mit,B.mit):"")}
+    ${row("list","blue","Tasks done",A.todoDone+"/"+A.todoAll,hasB?delta(A.todoDone,B.todoDone):"")}
+    ${row("timer","peach","Focus minutes",A.focus,hasB?delta(A.focus,B.focus):"")}
+    ${row("laptop","lilac","Build sessions",A.builds,hasB?delta(A.builds,B.builds):"")}
+    ${row("bag","gold","People reached",A.out+"/"+jTarget,hasB?delta(A.out,B.out):"")}
+  </section>
+  <section class="sec">
+    <div class="head"><h2 class="ht">${I("heart","pink")}Health and habits</h2></div>
+    ${row("check","green","Routines done",A.rtPct+"%",hasB?delta(A.rtPct,B.rtPct,"up","%"):"")}
+    ${row("drop","teal","Water a day",(A.n?(A.water/A.n).toFixed(1):0)+" glasses",hasB?delta(A.n?A.water/A.n:0,B.n?B.water/B.n:0):"")}
+    ${row("path","green","Walks",A.walks+"/7",hasB?delta(A.walks,B.walks):"")}
+    ${row("bed","lilac","Average sleep",A.sleepN?(A.sleep/A.sleepN).toFixed(1)+" h":"–",hasB&&A.sleepN&&B.sleepN?delta(A.sleep/A.sleepN,B.sleep/B.sleepN):"")}
+    ${row("phone","pink","Minutes scrolled",A.scroll,hasB?delta(A.scroll,B.scroll,"down"):"")}
+    ${row("shield","blue","Urges let pass",A.urges,hasB?delta(A.urges,B.urges):"")}
+  </section>
+  <section class="sec">
+    <div class="head"><h2 class="ht">${I("wallet","blue")}Money</h2></div>
+    ${row("wallet","blue","Spent",money(A.spend)+(budget?" of "+money(budget):""),hasB?delta(Math.round(A.spend),Math.round(B.spend),"down"):"")}
+  </section>
+  <section class="sec">
+    <div class="head"><h2 class="ht">${I("pen","peach")}Reflect</h2><p class="why">A short weekly review turns a week of data into one lesson. It's how small habits compound instead of resetting every Monday.</p></div>
+    ${prevRv.goal?`<p class="kind">${I("flag","blue")}<span>Last week you aimed for: <b>${esc(prevRv.goal)}</b></span></p>`:""}
+    <div class="field"><span class="label">What went well?</span><textarea id="rvGood" data-rv="good" data-ws="${ws}" style="min-height:70px">${esc(rv.good||"")}</textarea></div>
+    <div class="field"><span class="label">What got in the way?</span><textarea id="rvBlock" data-rv="block" data-ws="${ws}" style="min-height:70px">${esc(rv.block||"")}</textarea></div>
+    <div class="field"><span class="label">One focus for next week</span><input type="text" id="rvGoal" data-rv="goal" data-ws="${ws}" value="${esc(rv.goal||"")}"></div>
+  </section>`;
+}
+
 /* ---------- views ---------- */
 function viewMorning(d){
   const kind=KIND[(parseKey(cur).getDate()+3)%KIND.length];
   return `
+  ${chatView()}
   ${ayahCard(dailyAyah(cur),"Ayah of the day")}
   ${d.minimum?`<div class="banner"><b>Minimum day is on.</b> Pray all five, do one 10-minute block, write one good thing tonight. That keeps your chain alive.</div>`:`<p class="kind">${I("sun","gold")}<span>${kind}</span></p>`}
   ${routineSection("morning","Wake-up routine","Tiny, easy wins first thing build momentum for bigger ones. Doing them in the same order every day turns them into one automatic chain (Fogg, 2019).")}
@@ -641,8 +962,8 @@ function viewMorning(d){
     <div class="task mit"><span class="label">The one thing</span>
       <div class="grid"><input type="text" id="mit" data-path="mit.text" value="${esc(d.mit.text)}" placeholder="If only this gets done, today was good">${anchorSelect("mit.when",d.mit.when)}</div>
       <input type="text" id="mitstep" data-path="mit.step" value="${esc(d.mit.step)}" placeholder="First 10-minute step"></div>
-    ${d.tasks.map((t,i)=>`<div class="task"><span class="label">Support task ${i+1}</span><div class="grid"><input type="text" id="task${i}" data-path="tasks.${i}.text" value="${esc(t.text)}" placeholder="Optional">${anchorSelect("tasks."+i+".when",t.when)}</div></div>`).join("")}
   </section>
+  ${todoSection(cur,cur===todayKey()?"Today's tasks":"Tasks for this day",{carry:cur===todayKey()?carryBanner():"",move:{to:"next",label:"Tomorrow"},hint:"Everything else you want to get done. Add more anytime."})}
   <section class="sec">
     <div class="head"><h2 class="ht">${I("shield","teal")}What could stop you?</h2><p class="why">Picturing the obstacle and planning around it works better than positive thinking alone (Oettingen, 2014).</p></div>
     <input type="text" id="obstacle" data-path="obstacle" value="${esc(d.obstacle)}" placeholder="The obstacle, e.g. I'll feel tired after Dhuhr">
@@ -672,6 +993,8 @@ function viewDay(d){
     <div class="head"><h2 class="ht">${I("mosque","gold")}Salah</h2><p class="hint">Tap: once on time, twice late, three times missed. Late still counts.</p></div>
     <div class="prayers">${PRAYERS.map(([k,n])=>`<button class="pr" data-act="prayer" data-p="${k}" data-s="${d.prayers[k]}">${I(P_ICON[k],"blue","xs")}<b>${n}</b><small>${PSTATE[d.prayers[k]]}</small></button>`).join("")}</div>
   </section>
+  ${todoSection(cur,"My tasks",{move:{to:"next",label:"Tomorrow"},carry:cur===todayKey()?carryBanner():""})}
+  ${jobsMini()}
   <section class="sec">
     <div class="head"><h2 class="ht">${I("beads","green")}Astaghfirullah</h2><p class="hint">33 after each salah, 165 a day.</p></div>
     <div class="tasbih">
@@ -704,9 +1027,8 @@ function viewDay(d){
     <div class="counter"><span><b>Times I switched</b><br><span class="small muted">Noticing is the first step</span></span><span class="row" style="flex-wrap:nowrap"><button class="btn ghost" data-act="cnt" data-k="waitSwitch" data-n="-1" aria-label="Remove one">−</button><span class="num">${d.waitSwitch||0}</span><button class="btn" data-act="cnt" data-k="waitSwitch" data-n="1" aria-label="Add one">+</button></span></div>
   </section>
   <section class="sec">
-    <div class="head"><h2 class="ht">${I("list","green")}Today's work</h2></div>
+    <div class="head"><h2 class="ht">${I("target","gold")}Today's work</h2></div>
     ${checkBtn("mit.done",d.mit.done,esc(d.mit.text)||"Today's one thing",esc(d.mit.when),"star","target","gold")}
-    ${d.tasks.map((t,i)=>t.text?checkBtn("tasks."+i+".done",t.done,esc(t.text),esc(t.when),"","list","blue"):"").join("")}
     ${checkBtn("walk",d.walk,"Walk, 15 minutes","Short walks lift mood and clear the fog","","path","green")}
     ${checkBtn("build",d.build,"Build session with Claude","30 to 45 minutes on one project","","laptop","lilac")}
     <div class="row"><input type="text" class="grow" id="project" data-set="project" value="${esc(settings.project)}" placeholder="Your project"><input type="text" class="grow" id="buildNote" data-path="buildNote" value="${esc(d.buildNote)}" placeholder="What I built today"></div>
@@ -720,6 +1042,7 @@ function viewDay(d){
 
 function viewNight(d){
   return `
+  ${parseKey(cur).getDay()===0?`<div class="carry"><span><b>It's Sunday.</b><br><span class="small muted">Take 5 minutes for your weekly report.</span></span><button class="btn sun" data-act="gotab" data-tab="stats">Open report</button></div>`:""}
   <section class="sec">
     <div class="head"><h2 class="ht">${I("moon","lilac")}Wind down</h2><p class="hint">Aim to sleep by <input type="time" id="bedtime" data-set="bedtime" value="${esc(settings.bedtime)}" style="width:auto;display:inline-block;padding:4px 8px"> so Fajr feels easy.</p></div>
   </section>
@@ -739,13 +1062,21 @@ function viewNight(d){
   <section class="sec">
     <div class="head"><h2 class="ht">${I("flag","blue")}Close the day</h2><p class="why">A specific plan for unfinished work stops it looping in your head at night (Masicampo &amp; Baumeister, 2011).</p></div>
     <input type="text" id="tomorrow" data-path="tomorrow" value="${esc(d.tomorrow)}" placeholder="Tomorrow's one thing">
-    <p class="hint">It'll be waiting for you in the morning. Day closed. Sleep well.</p>
-  </section>`;
+    ${(d.todos||[]).some(t=>!t.done)?`<div class="carry"><span><b>${d.todos.filter(t=>!t.done).length} task${d.todos.filter(t=>!t.done).length===1?"":"s"} still open today</b></span><button class="btn sun" data-act="pushAll">Move to tomorrow</button></div>`:""}
+  </section>
+  ${todoSection(shift(cur,1),"Plan tomorrow",{icon:"calendar",tone:"blue",placeholder:"Add a task for tomorrow…",move:{to:"prev",label:"Today"},hint:"Write it down now and let your mind rest. It'll all be waiting in the morning.",empty:"Nothing planned yet."})}
+  <p class="hint" style="text-align:center">Day closed. Sleep well.</p>`;
 }
 
 /* ---------- quran ---------- */
-let Q=null, Qloading=false, Qerr=false, pageIdx=null;
+let Q=null, Qloading=false, Qerr=false, pageIdx=null, TR={}, TRloading={};
+const TRANS={clear:{name:"The Clear Quran",by:"Dr. Mustafa Khattab",file:"en-clear.json"},saheeh:{name:"Saheeh International",by:"Saheeh International",file:"en-saheeh.json"}};
+function transKey(){return TRANS[settings.trans]?settings.trans:"clear";}
 function loadQuran(){
+  const tk=transKey();
+  if(!TR[tk]&&!TRloading[tk]){TRloading[tk]=true;
+    fetch(TRANS[tk].file).then(r=>{if(!r.ok) throw 0; return r.json();}).then(j=>{TR[tk]=j;TRloading[tk]=false;if(tab==="quran") renderPanel();})
+    .catch(()=>{TRloading[tk]=false;Qerr=true;if(tab==="quran") renderPanel();});}
   if(Q||Qloading) return; Qloading=true; Qerr=false;
   fetch("quran.json").then(r=>{if(!r.ok) throw 0; return r.json();}).then(j=>{Q=j; pageIdx={};
     Q.v.forEach((v,i)=>{(pageIdx[v[2]]=pageIdx[v[2]]||[]).push(i);}); Qloading=false; if(tab==="quran") renderPanel();})
@@ -762,13 +1093,14 @@ function viewQuran(d){
   const left=604-done, per=Number(settings.qPages)||2, finish=new Date(); finish.setDate(finish.getDate()+Math.ceil(left/per));
   const prevRef=days[shift(cur,-1)]&&days[shift(cur,-1)].reflect;
   let body="";
-  if(!Q){ loadQuran(); body=Qerr?`<p class="hint">Couldn't load the Quran text. Check your connection and reopen this tab.</p>`:`<p class="hint">Opening the mushaf…</p>`; }
+  const TRt=TR[transKey()];
+  if(!Q||!TRt){ loadQuran(); body=Qerr?`<p class="hint">Couldn't load the Quran text. Check your connection and reopen this tab.</p>`:`<p class="hint">Opening the mushaf…</p>`; }
   else {
     let lastCh=0; const parts=[];
     for(let p=from;p<=to;p++) (pageIdx[p]||[]).forEach(i=>{const v=Q.v[i];
       if(v[0]!==lastCh){lastCh=v[0];const c=Q.c[v[0]-1];if(v[1]===1)parts.push(`<div class="surah"><span class="sar">${esc(c[2])}</span><b>Surah ${esc(c[0])}</b><span class="small muted">${esc(c[1])} · ${c[3]} ayat</span></div>${v[0]!==1&&v[0]!==9?`<p class="ar" style="text-align:center">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>`:""}`);
         else parts.push(`<p class="label" style="margin-top:6px">Surah ${esc(c[0])}, continued</p>`);}
-      parts.push(`<div class="verse"><span class="vn">${v[0]}:${v[1]}</span><p class="ar" lang="ar">${esc(v[3])}</p><p class="en">${esc(v[4])}</p></div>`);});
+      parts.push(`<div class="verse"><span class="vn">${v[0]}:${v[1]}</span><p class="ar" lang="ar">${esc(v[3])}</p><p class="en">${esc(TRt[i])}</p></div>`);});
     const first=Q.v[(pageIdx[from]||[0])[0]], last=Q.v[(pageIdx[to]||[0]).slice(-1)[0]];
     body=`<p class="hint">Want a modern translation or tafsir for these ayat? <a href="https://quran.com/${first[0]}/${first[1]}" target="_blank" rel="noopener">Open on Quran.com</a></p>${parts.join("")}<p class="small muted">Ayat ${first[0]}:${first[1]} to ${last[0]}:${last[1]}</p>`;
   }
@@ -778,6 +1110,8 @@ function viewQuran(d){
       <p class="why">Best time: right after Fajr. Your mind is rested and the house is quiet, and it rides on a prayer you already do. The Quran itself praises the recital at dawn: "Lo! (the recital of) the Qur'an at dawn is ever witnessed" (17:78).</p></div>
     <div class="qhead"><b>Page ${read?to:done} of 604</b><span class="small muted">${pct}% · finish around ${finish.toLocaleDateString(undefined,{month:"long",year:"numeric"})}</span></div>
     <div class="bar"><i style="width:${pct}%"></i></div>
+    <div class="row"><span class="hint">Translation</span><div class="pills">${Object.entries(TRANS).map(([k,t])=>`<button class="pill" data-act="trans" data-k="${k}" aria-pressed="${transKey()===k}">${t.name}</button>`).join("")}</div></div>
+    <p class="small muted">Words in ˹these brackets˺ are added by the translator to make the meaning clear.</p>
     <div class="row"><span class="hint">Pages a day</span><div class="pills">${[1,2,4].map(n=>`<button class="pill" data-act="qpages" data-n="${n}" aria-pressed="${per===n}">${n}</button>`).join("")}</div></div>
   </section>
   ${prevRef?`<section class="sec"><div class="head"><span class="row">${I("bookmark","peach","sm")}<span class="label">Yesterday this stayed with you</span></span></div><p class="en" style="font-weight:700">${esc(prevRef)}</p><p class="hint">Recalling it today helps it stick for good.</p></section>`:""}
@@ -790,7 +1124,7 @@ function viewQuran(d){
     <textarea id="reflect" data-path="reflect" placeholder="Which ayah touched you today, and why?">${esc(d.reflect)}</textarea>
     ${read?`<button class="btn" data-act="qundo">Undo, I haven't read it yet</button>`:`<button class="btn primary" data-act="qdone" style="padding:14px">I've read today's portion</button>`}
   </section>
-  <p class="hint" style="text-align:center">Arabic text: Tanzil. English: Marmaduke Pickthall (1930).</p>`;
+  <p class="hint" style="text-align:center">Arabic text: Tanzil. English: ${TRANS[transKey()].name} (${TRANS[transKey()].by}).</p>`;
 }
 
 /* ---------- money ---------- */
@@ -800,7 +1134,15 @@ let selCat="Food";
 const money=n=>"Rs "+Math.round(Number(n)||0).toLocaleString("en-PK");
 function spendOf(k){const d=days[k];return d&&d.spend?d.spend.reduce((a,e)=>a+(Number(e.amt)||0),0):0;}
 function weekStart(k){const d=parseKey(k);return shift(k,-((d.getDay()+6)%7));}
+function addSpendSection(){ return `  <section class="sec">
+    <div class="head"><h2 class="ht">${I("plus","green")}Add a spend</h2><p class="why">Cards and wallets hide the "pain of paying", so money leaks unnoticed (Prelec &amp; Loewenstein, 1998). Writing each spend down makes it real again.</p></div>
+    <div class="row"><input type="number" min="0" id="amt" placeholder="Amount" inputmode="decimal" style="flex:0 0 130px"><input type="text" id="note" class="grow" placeholder="What for? (optional)"></div>
+    <div class="pills">${CATS.map(c=>`<button class="pill" data-act="cat" data-c="${c}" aria-pressed="${c===selCat}">${I(C_ICON[c],"blue","xs")}${c}</button>`).join("")}</div>
+    <button class="btn primary" data-act="addSpend" style="padding:13px">Add spend</button>
+  </section>`; }
 function viewMoney(){
+  const seg=`<div class="seg"><button data-act="mMode" data-m="week" aria-pressed="${moneyMode==="week"}">This week</button><button data-act="mMode" data-m="month" aria-pressed="${moneyMode==="month"}">Monthly</button></div>`;
+  if(moneyMode==="month") return seg+viewMonth()+addSpendSection();
   const t=todayKey(), ws=weekStart(cur), idx=diffDays(ws,cur), budget=Number(settings.budget)||0;
   let week=0; const per=[]; for(let i=0;i<7;i++){const k=shift(ws,i);const v=spendOf(k);week+=v;per.push([k,v]);}
   const left=budget-week, daysLeft=Math.max(1,7-idx), ratio=budget?week/budget:0;
@@ -809,7 +1151,7 @@ function viewMoney(){
   const d=day(), list=d.spend||[], max=Math.max(1,...per.map(p=>p[1]),budget?budget/7:0);
   const cats={};per.forEach(([k])=>{(days[k]&&days[k].spend||[]).forEach(e=>{cats[e.cat]=(cats[e.cat]||0)+(Number(e.amt)||0);});});
   const catList=Object.entries(cats).sort((a,b)=>b[1]-a[1]), cmax=Math.max(1,...catList.map(c=>c[1]));
-  return `
+  return `${seg}
   <section class="sec">
     <div class="head"><h2 class="ht">${I("wallet","blue")}This week</h2><p class="hint">Monday to Sunday.</p></div>
     <div class="row"><span class="hint" style="font-weight:800">Weekly budget (Rs)</span><input type="number" min="0" id="budget" data-set="budget" value="${esc(settings.budget)}" placeholder="e.g. 7000" style="width:130px" inputmode="numeric"></div>
@@ -817,12 +1159,7 @@ function viewMoney(){
     ${budget?`<div class="bar money ${cls}"><i style="width:${Math.min(100,ratio*100)}%"></i></div>`:""}
     ${allow!==null?`<p class="allow">You can spend <b>${money(allow)}</b> a day for the next ${daysLeft} day${daysLeft===1?"":"s"} and stay on budget.</p>`:budget&&left<=0&&cur===t?`<p class="allow">Budget used up this week. Only essentials until Monday.</p>`:""}
   </section>
-  <section class="sec">
-    <div class="head"><h2 class="ht">${I("plus","green")}Add a spend</h2><p class="why">Cards and wallets hide the "pain of paying", so money leaks unnoticed (Prelec &amp; Loewenstein, 1998). Writing each spend down makes it real again.</p></div>
-    <div class="row"><input type="number" min="0" id="amt" placeholder="Amount" inputmode="decimal" style="flex:0 0 130px"><input type="text" id="note" class="grow" placeholder="What for? (optional)"></div>
-    <div class="pills">${CATS.map(c=>`<button class="pill" data-act="cat" data-c="${c}" aria-pressed="${c===selCat}">${I(C_ICON[c],"blue","xs")}${c}</button>`).join("")}</div>
-    <button class="btn primary" data-act="addSpend" style="padding:13px">Add spend</button>
-  </section>
+  ${addSpendSection()}
   <section class="sec">
     <div class="head"><h2 class="ht">${I("receipt","pink")}${cur===t?"Today":"This day"} · ${money(spendOf(cur))}</h2></div>
     ${list.length?list.map((e,i)=>`<div class="exp">${I(C_ICON[e.cat]||"dots","lilac","sm")}<span class="cat">${esc(e.cat)}</span><span class="nt">${esc(e.note)||"&nbsp;"}</span><span class="am">${money(e.amt)}</span><button class="del" data-act="delSpend" data-i="${i}" aria-label="Delete">×</button></div>`).join(""):`<p class="hint">Nothing spent yet. Add each spend as it happens.</p>`}
@@ -851,21 +1188,11 @@ function viewStats(){
     if(d.quran&&d.quran.read) qp+=(d.quran.to-d.quran.from+1);}
   const rstats=settings.routines.map(r=>{let due=0,done=0;for(let i=0;i<14;i++){const k=shift(t,-i);if(!days[k])continue;const s=routineStatus(r,k);if(s.due){due++;if(s.done)done++;}}return {r,due,done};});
   return `
+  ${viewWeekly()}
   <section class="sec">
     <div class="head"><div class="bigchain">${I("link","blue")}<b>${chain}</b><h2>day${chain===1?"":"s"} in your chain</h2></div><p class="why">Never miss twice. One off day doesn't break the chain; two in a row does. Missing once barely affects habit formation (Lally et al., 2010).</p></div>
     <div class="chain">${last14.map(c=>`<i class="${c}"></i>`).join("")}</div>
     <div class="legend"><i style="background:var(--grass2);border-radius:50%"></i> kept <i style="border:2px dashed var(--rose);border-radius:50%"></i> missed · last 14 days</div>
-  </section>
-  <section class="sec">
-    <div class="head"><h2 class="ht">${I("calendar","blue")}Last 7 days</h2></div>
-    <div class="stats">
-      <div class="stat">${I("mosque","gold","sm")}<b>${onTime}/35</b><span>prayers on time (${pr} prayed)</span></div>
-      <div class="stat">${I("book","blue","sm")}<b>${qp}</b><span>Quran pages read</span></div>
-      <div class="stat">${I("check","green","sm")}<b>${n?Math.round(rt/n*100):0}%</b><span>routines done</span></div>
-      <div class="stat">${I("timer","peach","sm")}<b>${blocks}</b><span>focus blocks · ${mins} min</span></div>
-      <div class="stat">${I("beads","lilac","sm")}<b>${ast}</b><span>astaghfar</span></div>
-      <div class="stat">${I("drop","teal","sm")}<b>${n?(water/n).toFixed(1):0}</b><span>glasses of water a day</span></div>
-    </div>
   </section>
   <section class="sec">
     <div class="head"><h2 class="ht">${I("grid","green")}Eight weeks</h2><p class="hint">Each square is a day. Greener means more of your plan got done.</p></div>
@@ -981,7 +1308,7 @@ function beep(){try{actx=actx||new (window.AudioContext||window.webkitAudioConte
 /* ---------- render ---------- */
 function renderPanel(){
   const p=document.getElementById("panel"), d=day();
-  p.innerHTML=tab==="morning"?viewMorning(d):tab==="day"?viewDay(d):tab==="night"?viewNight(d):tab==="quran"?viewQuran(d):tab==="money"?viewMoney():viewStats();
+  p.innerHTML=tab==="morning"?viewMorning(d):tab==="day"?viewDay(d):tab==="night"?viewNight(d):tab==="quran"?viewQuran(d):tab==="money"?viewMoney():tab==="jobs"?viewJobs():viewStats();
   document.querySelectorAll(".nav button").forEach(b=>b.setAttribute("aria-selected",String(b.dataset.tab===tab)));
 }
 function renderAll(){renderHeader();renderPanel();}
@@ -995,8 +1322,10 @@ document.getElementById("goToday").onclick=()=>{cur=todayKey();renderAll();};
 const panel=document.getElementById("panel");
 panel.addEventListener("input",e=>{
   const el=e.target;
-  if(el.dataset.path){ setPath(day(),el.dataset.path,el.value); persist(cur); updateScore(); }
-  else if(el.dataset.set){ let v=el.value; if(["qPage","waterGoal"].includes(el.dataset.set)) v=Number(v)||settings[el.dataset.set]; setPath(settings,el.dataset.set,v); persist("settings"); }
+  if(el.dataset.path){ const dd=day(); setPath(dd,el.dataset.path,el.value); if(el.dataset.path==="mit.text") dd.mitTouched=true; persist(cur); updateScore(); }
+  else if(el.dataset.set){ let v=el.value; if(["qPage","waterGoal","jobGoal"].includes(el.dataset.set)) v=Number(v)||settings[el.dataset.set]; setPath(settings,el.dataset.set,v); persist("settings"); }
+  else if(el.dataset.rv){ const k=el.dataset.ws, dd=day(k); dd.review=dd.review||{}; dd.review[el.dataset.rv]=el.value; persist(k); }
+  else if(el.dataset.jid&&el.tagName==="INPUT"){ const c=jobs.contacts.find(x=>x.id===el.dataset.jid); if(c){ c[el.dataset.jf]=el.value; persist("jobs"); } }
   else if(el.dataset.r&&el.tagName==="INPUT"){ const [i,f]=el.dataset.r.split("."); settings.routines[i][f]=f==="n"?Math.max(1,Number(el.value)||1):el.value; persist("settings"); }
 });
 panel.addEventListener("change",e=>{
@@ -1004,14 +1333,16 @@ panel.addEventListener("change",e=>{
   if(el.id==="importFile"&&el.files&&el.files[0]){ importData(el.files[0]); el.value=""; return; }
   if(el.tagName==="SELECT"&&el.dataset.path){ setPath(day(),el.dataset.path,el.value); persist(cur); }
   if(el.tagName==="SELECT"&&el.dataset.r){ const [i,f]=el.dataset.r.split("."); const r=settings.routines[i]; r[f]=f==="dow"?Number(el.value):el.value; if(f==="freq"){ if(el.value==="interval"&&!r.n) r.n=3; if(el.value==="weekly"&&r.dow===undefined) r.dow=6; } persist("settings"); renderPanel(); }
-  if(el.dataset.set==="budget"||el.dataset.set==="waterGoal") { renderPanel(); updateScore(); }
+  if(el.dataset.set==="budget"||el.dataset.set==="waterGoal"||el.dataset.set==="jobGoal") { renderPanel(); updateScore(); }
+  if(el.tagName==="SELECT"&&el.dataset.set){ settings[el.dataset.set]=el.value; persist("settings"); renderPanel(); }
+  if(el.tagName==="SELECT"&&el.dataset.jid){ const c=jobs.contacts.find(x=>x.id===el.dataset.jid); if(c){ c[el.dataset.jf]=el.value; if(el.value!=="Reached") c.followUp=""; persist("jobs"); if(["Interview","Offer"].includes(el.value)){confetti();toast(el.value==="Offer"?"An offer! Alhamdulillah!":"Interview! You've got this.");} renderPanel(); } }
 });
 panel.addEventListener("click",e=>{
   const b=e.target.closest("[data-act]"); if(!b) return;
   const d=day(), a=b.dataset.act;
   if(a==="set"){ const v=Number(b.dataset.val); setPath(d,b.dataset.path,getPath(d,b.dataset.path)===v?0:v); }
   else if(a==="toggle"){ const p=b.dataset.path, v=!getPath(d,p); setPath(d,p,v);
-    if(v){ if(p==="mit.done"){confetti();toast("One thing done. Alhamdulillah.");} else if(p.startsWith("tasks")) toast("Nice. Keep the momentum.");
+    if(v){ if(p==="mit.done"){confetti();toast("One thing done. Alhamdulillah.");} 
       else if(p==="walk") toast("Walk done. Fresh air, fresh mind."); else if(p==="build") toast("You built something today."); else if(p==="minimum") toast("Minimum day on. Small still counts."); } }
   else if(a==="routine"){ const id=b.dataset.id; d.routine[id]=!d.routine[id];
     if(d.routine[id]){ const r=settings.routines.find(x=>x.id===id); const slot=r?r.slot:""; const left=routinesFor(slot).filter(x=>x.s.due&&!x.s.done).length;
@@ -1033,6 +1364,33 @@ panel.addEventListener("click",e=>{
     else {T.running=true;T.end=Date.now()+T.left*1000;clearInterval(T.iv);T.iv=setInterval(tick,250);try{actx=actx||new (window.AudioContext||window.webkitAudioContext)();}catch(_){} } renderPanel(); return; }
   else if(a==="treset"){ T.running=false;clearInterval(T.iv);T.left=T.len;document.title="Itrat's Daily Planner";renderPanel();return; }
   else if(a==="gotab"){ goTab(b.dataset.tab); return; }
+  else if(a==="todoWhen"){ addWhen[b.dataset.k]=b.dataset.w; renderPanel(); const inp=document.getElementById("todoIn-"+b.dataset.k); if(inp) inp.focus(); return; }
+  else if(a==="todoAdd"){ addTodo(b.dataset.k); return; }
+  else if(a==="todo"||a==="todoDel"||a==="todoMove"){ const k=b.dataset.k, dd=day(k), i=dd.todos.findIndex(t=>t.id===b.dataset.id); if(i<0) return; const t=dd.todos[i];
+    if(a==="todo"){ t.done=!t.done; if(t.done){ const left=dd.todos.filter(x=>!x.done).length; if(!left&&dd.todos.length>1){confetti();toast("Every task done. MashaAllah!");} else toast("Done. Nice work."); } }
+    else if(a==="todoDel"){ dd.todos.splice(i,1); }
+    else { const to=b.dataset.to==="next"?shift(k,1):shift(k,-1); dd.todos.splice(i,1); day(to).todos.push({...t,id:tid()}); persist(to); toast(b.dataset.to==="next"?"Moved to tomorrow.":"Moved to today."); }
+    persist(k); renderPanel(); updateScore(); return; }
+  else if(a==="carry"){ const y=shift(cur,-1), yd=day(y), left=yd.todos.filter(t=>!t.done); yd.todos=yd.todos.filter(t=>t.done); left.forEach(t=>d.todos.push({...t,id:tid()})); persist(y); toast(left.length+" task"+(left.length===1?"":"s")+" brought to today."); }
+  else if(a==="pushAll"){ const nk=shift(cur,1), nd=day(nk), left=d.todos.filter(t=>!t.done); d.todos=d.todos.filter(t=>t.done); left.forEach(t=>nd.todos.push({...t,id:tid()})); persist(nk); toast("Moved to tomorrow. Rest now."); }
+  else if(a==="chatSend"){ const inp=document.getElementById("chatIn"); sendChat(inp&&inp.value); return; }
+  else if(a==="hiQuick"){ sendChat(b.dataset.q); return; }
+  else if(a==="copyHi"){ const t=openMsg(); try{ navigator.clipboard.writeText(t).then(()=>toast("Copied. Paste it into Claude."),()=>toast("Couldn't copy here.")); }catch(e){ toast("Couldn't copy here."); } return; }
+  else if(a==="mMode"){ moneyMode=b.dataset.m; moneyMonth=null; renderPanel(); return; }
+  else if(a==="mPrev"||a==="mNext"){ moneyMonth=shiftMonth(moneyMonth||cur.slice(0,7),a==="mPrev"?-1:1); renderPanel(); return; }
+  else if(a==="wPrev"||a==="wNext"){ reportWs=shift(reportWs||weekStart(todayKey()),a==="wPrev"?-7:7); renderPanel(); return; }
+  else if(a==="jCh"){ jobCh=b.dataset.c; renderPanel(); return; }
+  else if(a==="jFilter"){ jobFilter=b.dataset.f; renderPanel(); return; }
+  else if(a==="jAdd"){ const nm=document.getElementById("jName"), name=nm.value.trim(); if(!name){ toast("Add their name first."); nm.focus(); return; }
+    jobs.contacts.push({id:tid(),name,company:document.getElementById("jCompany").value.trim(),role:document.getElementById("jRole").value.trim(),link:document.getElementById("jLink").value.trim(),channel:jobCh,date:cur,followUp:shift(cur,4),status:"Reached",fups:0,notes:"",t:Date.now()});
+    persist("jobs"); const {n,g,label}=jobProgress(); if(n===g){confetti();toast(g+" people reached "+label+". Goal done!");} else toast(n+" of "+g+" "+label+". Keep going."); renderPanel(); updateScore(); const f=document.getElementById("jName"); if(f) f.focus(); return; }
+  else if(a==="jFollow"||a==="jReplied"||a==="jDel"){ const i=jobs.contacts.findIndex(c=>c.id===b.dataset.id); if(i<0) return; const c=jobs.contacts[i];
+    if(a==="jDel") jobs.contacts.splice(i,1);
+    else if(a==="jReplied"){ c.status="Replied"; c.followUp=""; toast("A reply! Respond quickly and kindly."); }
+    else { c.fups=(c.fups||0)+1; if(c.fups>=2){ c.followUp=""; c.status="No reply"; toast("Followed up twice. Moving on is fine."); } else { c.followUp=shift(todayKey(),5); toast("Nice. Next check in 5 days."); } }
+    persist("jobs"); renderPanel(); return; }
+  else if(a==="jCopy"){ const t=(settings.jobMsg||DEFAULT_JOBMSG); try{ navigator.clipboard.writeText(t).then(()=>toast("Copied. Personalise the first line."),()=>toast("Couldn't copy here. Select the text instead.")); }catch(e){ toast("Couldn't copy here."); } return; }
+  else if(a==="trans"){ settings.trans=b.dataset.k; persist("settings"); renderPanel(); return; }
   else if(a==="qpages"){ settings.qPages=Number(b.dataset.n); persist("settings"); renderPanel(); return; }
   else if(a==="qdone"){ const [f,t]=portion(d); d.quran={read:true,from:f,to:t}; settings.qPage=t>=604?1:t+1; persist("settings");
     if(t>=604){confetti();toast("You finished the whole Quran. MashaAllah!");} else {confetti();toast("Today's Quran done. Alhamdulillah.");} }
@@ -1052,9 +1410,19 @@ panel.addEventListener("click",e=>{
   persist(cur); renderPanel(); updateScore();
 });
 
+function addTodo(k){
+  const inp=document.getElementById("todoIn-"+k); if(!inp) return; const text=inp.value.trim();
+  if(!text){ inp.focus(); toast("Type a task first."); return; }
+  day(k).todos.push({id:tid(),text,when:addWhen[k]||"Anytime",done:false}); persist(k);
+  renderPanel(); updateScore(); const again=document.getElementById("todoIn-"+k); if(again) again.focus();
+  toast(k===shift(todayKey(),1)?"Added to tomorrow.":"Task added.");
+}
+panel.addEventListener("keydown",e=>{ const el=e.target; if(e.key==="Enter"&&el.dataset&&el.dataset.todoadd){ e.preventDefault(); addTodo(el.dataset.todoadd); }
+  if(e.key==="Enter"&&el.id==="chatIn"){ e.preventDefault(); sendChat(el.value); } });
+
 /* ---------- boot ---------- */
 loadLocal();
-try{const st=localStorage.getItem(LS+"-tab-date"); if(st===todayKey()){const tb=localStorage.getItem(LS+"-tab"); if(tb&&["morning","day","night","quran","money","stats"].includes(tb)) tab=tb;} localStorage.setItem(LS+"-tab-date",todayKey());}catch(e){}
+try{const st=localStorage.getItem(LS+"-tab-date"); if(st===todayKey()){const tb=localStorage.getItem(LS+"-tab"); if(tb&&["morning","day","night","quran","money","jobs","stats"].includes(tb)) tab=tb;} localStorage.setItem(LS+"-tab-date",todayKey());}catch(e){}
 setPhase();
 renderAll();
 setTimeout(preloadImages,1500);
@@ -1062,7 +1430,7 @@ if(STANDALONE){
   document.getElementById("foot").textContent="Saved on this device · export a backup now and then";
   try{ if(navigator.storage&&navigator.storage.persist) navigator.storage.persist(); }catch(e){}
   try{ if("serviceWorker" in navigator&&location.protocol==="https:") navigator.serviceWorker.register("sw.js"); }catch(e){}
-} else connect();
+} else { connect(); initSample(); }
 setInterval(()=>{ drawArc(); setPhase(); },60000);
 })();
 </script>
